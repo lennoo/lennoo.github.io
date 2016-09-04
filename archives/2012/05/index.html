@@ -87,7 +87,7 @@
 <meta name="description" content="Keep it simple">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lennoo">
-<meta property="og:url" content="http://www.lennoo.com/index.html">
+<meta property="og:url" content="http://www.lennoo.com/archives/2012/05/index.html">
 <meta property="og:site_name" content="Lennoo">
 <meta property="og:description" content="Keep it simple">
 <meta name="twitter:card" content="summary">
@@ -113,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/"/>
+  <link rel="canonical" href="http://www.lennoo.com/archives/2012/05/"/>
 
-  <title> Lennoo </title>
+  <title> 归档 | Lennoo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +136,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -205,113 +203,67 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
+
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 1 篇日志。 继续努力。
+    </span>
+
     
+
+      
+      
       
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
+      
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2012/05/25/first-post/" itemprop="url">
-                  Amazon EC2注册及应用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-05-25T23:03:08+08:00" content="2012-05-25">
-              2012-05-25
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2012">2012</h2>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
       
       
 
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-          
-            <p>Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）具体的注册可参见Amazon EC2一年免费服务注册过程。</p>
-<p>注册完Amazon EC2后，需要创建实例可部分参考 Amazon EC2 Ubuntu折腾笔记，有几点需要注意：一是区域测试过日本机房和新加坡机房，对我所处的位置来说，新加坡的ping时间在200ms水平，而日本在300ms水平，新加坡的更适合。二是登陆用的是密钥形式，如用putty需要格式转换，另不同的ami的登陆名不同，ubuntu官方的ami的id为099720109477，用户名为ubuntu，而不是Amazon实例的ec2-user。</p>
-<p>创建完EC2实例后，就是一般的虚拟主机使用方法，我现有两个用途：ssh转发和反向代理。ssh转发用的组合是firefox+foxyproxy+putty，其中putty在Tunnels页配置隧道，端口可随意，一般选7070，目标为Dynamic。在foxyproxy的代理配置页，需要Socks proxy?勾选上，我在这步开始没有注意，发现端口创建连接都失败，来回排查putty,foxyproxy，后来将装了autoproxy插件工作正常，才兜回来发现这步错误。配置完毕，就可自由地浏览网络了。</p>
-<p>反向代理用的是nginx，在ubuntu 10.04.2下的操作:</p>
-<ol>
-<li>安装nginx，$sudo aptitude install nginx</li>
-<li>修改配置文件,$vim /etc/nginx/nginx.conf，在http段落下添加<br>server {<br>listen 80;<br>server_name www.lengoo.com lengoo.com;<br>location ／ {<br>proxy_redirect off;<br>proxy_pass <a href="http://len-home.appspot.com" target="_blank" rel="external">http://len-home.appspot.com</a>;<br>proxy_set_header  X-Real-IP  $remote_addr;<br>proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>}<br>}</li>
-</ol>
-<p>上面其中len-home.appspot.com为appengine的应用程序名，对于Amazon Linux AMI(应是CentOS)可参见使用免费的 amazon EC2做google app engine反向代理，但文中提到用转发到<a href="http://ghs.google.com，" target="_blank" rel="external">http://ghs.google.com，</a> 我照其方法会跳转到错误的google首页。</p>
-
-          
+            <a class="post-title-link" href="/2012/05/25/first-post/" itemprop="url">
+              
+                <span itemprop="name">Amazon EC2注册及应用</span>
+              
+            </a>
         
-      
-    </div>
+      </h1>
 
-    <div>
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2012-05-25T23:03:08+08:00"
+              content="2012-05-25" >
+          05-25
+        </time>
+      </div>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </header>
   </article>
 
 
+
     
+
   </section>
 
   
+
 
 
           </div>
@@ -471,6 +423,12 @@
   
 
   
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
+
 
   
 
