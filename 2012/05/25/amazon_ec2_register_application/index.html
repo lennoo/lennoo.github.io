@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Lennoo">
 <meta property="og:description" content="Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。
 注册完Amazon EC2后，需要创建实例可部分参考 Amazon EC2 Ubuntu折腾笔记，有几点需要注意：">
-<meta property="og:updated_time" content="2016-09-04T12:31:53.223Z">
+<meta property="og:updated_time" content="2016-09-04T14:04:48.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Amazon EC2注册及应用">
 <meta name="twitter:description" content="Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。
@@ -259,6 +259,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/05/25/amazon_ec2_register_application/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/05/25/amazon_ec2_register_application/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -280,6 +287,7 @@
       
         <p>Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。</p>
 <p>注册完Amazon EC2后，需要创建实例可部分参考 <a href="http://lanhl.com/2011-amazon-ec2-ubuntu-lamp-wordpress.html" target="_blank" rel="external">Amazon EC2 Ubuntu折腾笔记</a>，有几点需要注意：一是区域测试过日本机房和新加坡机房，对我所处的位置来说，新加坡的ping时间在200ms水平，而日本在300ms水平，新加坡的更适合。二是登陆用的是密钥形式，如用putty需要格式转换，另不同的ami的登陆名不同，ubuntu官方的ami的id为099720109477，用户名为ubuntu，而不是Amazon实例的ec2-user。</p>
+<a id="more"></a>
 <p>创建完EC2实例后，就是一般的虚拟主机使用方法，我现有两个用途：ssh转发和反向代理。ssh转发用的组合是 <em>firefox+foxyproxy+putty</em> ，其中putty在Tunnels页配置隧道，端口可随意，一般选7070，目标为Dynamic。在foxyproxy的代理配置页，需要Socks proxy?勾选上，我在这步开始没有注意，发现端口创建连接都失败，来回排查putty,foxyproxy，后来将装了autoproxy插件工作正常，才兜回来发现这步错误。配置完毕，就可自由地浏览网络了。</p>
 <p>反向代理用的是nginx，在ubuntu 10.04.2下的操作:</p>
 <ol>
@@ -344,6 +352,10 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2012/05/25/amazon_ec2_register_application/"
+           data-title="Amazon EC2注册及应用" data-url="http://www.lennoo.com/2012/05/25/amazon_ec2_register_application/">
+      </div>
     
   </div>
 
@@ -533,9 +545,30 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lennoo"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
 
 
 
