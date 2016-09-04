@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="Keep it simple">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lennoo">
-<meta property="og:url" content="http://www.lennoo.com/index.html">
+<meta name="description" content="Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。
+注册完Amazon EC2后，需要创建实例可部分参考 Amazon EC2 Ubuntu折腾笔记，有几点需要注意：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Amazon EC2注册及应用">
+<meta property="og:url" content="http://www.lennoo.com/2012/05/25/amazon_ec2_register_application/index.html">
 <meta property="og:site_name" content="Lennoo">
-<meta property="og:description" content="Keep it simple">
+<meta property="og:description" content="Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。
+注册完Amazon EC2后，需要创建实例可部分参考 Amazon EC2 Ubuntu折腾笔记，有几点需要注意：">
+<meta property="og:updated_time" content="2016-09-04T12:31:53.223Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lennoo">
-<meta name="twitter:description" content="Keep it simple">
+<meta name="twitter:title" content="Amazon EC2注册及应用">
+<meta name="twitter:description" content="Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。
+注册完Amazon EC2后，需要创建实例可部分参考 Amazon EC2 Ubuntu折腾笔记，有几点需要注意：">
 
 
 
@@ -113,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/"/>
+  <link rel="canonical" href="http://www.lennoo.com/2012/05/25/amazon_ec2_register_application/"/>
 
-  <title> Lennoo </title>
+  <title> Amazon EC2注册及应用 | Lennoo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,9 +149,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +216,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -236,10 +238,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2012/05/25/amazon_ec2_register_application/" itemprop="url">
-                  Amazon EC2注册及应用
-                </a>
+                Amazon EC2注册及应用
               
             
           </h1>
@@ -279,9 +278,7 @@
       
 
       
-        
-          
-            <p>Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。</p>
+        <p>Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。</p>
 <p>注册完Amazon EC2后，需要创建实例可部分参考 <a href="http://lanhl.com/2011-amazon-ec2-ubuntu-lamp-wordpress.html" target="_blank" rel="external">Amazon EC2 Ubuntu折腾笔记</a>，有几点需要注意：一是区域测试过日本机房和新加坡机房，对我所处的位置来说，新加坡的ping时间在200ms水平，而日本在300ms水平，新加坡的更适合。二是登陆用的是密钥形式，如用putty需要格式转换，另不同的ami的登陆名不同，ubuntu官方的ami的id为099720109477，用户名为ubuntu，而不是Amazon实例的ec2-user。</p>
 <p>创建完EC2实例后，就是一般的虚拟主机使用方法，我现有两个用途：ssh转发和反向代理。ssh转发用的组合是 <em>firefox+foxyproxy+putty</em> ，其中putty在Tunnels页配置隧道，端口可随意，一般选7070，目标为Dynamic。在foxyproxy的代理配置页，需要Socks proxy?勾选上，我在这步开始没有注意，发现端口创建连接都失败，来回排查putty,foxyproxy，后来将装了autoproxy插件工作正常，才兜回来发现这步错误。配置完毕，就可自由地浏览网络了。</p>
 <p>反向代理用的是nginx，在ubuntu 10.04.2下的操作:</p>
@@ -292,16 +289,20 @@
 </ol>
 <p>上面其中 <strong>len-home.appspot.com</strong> 为appengine的应用程序名，对于Amazon Linux AMI(应是CentOS)可参见使用免费的 amazon EC2做google app engine反向代理，但文中提到用转发到 <a href="http://ghs.google.com" target="_blank" rel="external">http://ghs.google.com</a> ，我照其方法会跳转到错误的google首页。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -309,217 +310,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2008/03/12/hello_pygtk/" rel="next" title="初识PyGTK">
+                <i class="fa fa-chevron-left"></i> 初识PyGTK
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2008/03/12/hello_pygtk/" itemprop="url">
-                  初识PyGTK
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2008-03-12T19:43:00+08:00" content="2008-03-12">
-              2008-03-12
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.</p>
-<p>PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2008/03/12/hello_pygtk/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2008/01/30/pc_lint/" itemprop="url">
-                  PC-Lint简介
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2008-01-30T15:18:08+08:00" content="2008-01-30">
-              2008-01-30
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>PC-lint for C/C++是由Gimpel软件公司于1985年开发的代码静态分析工具,它能有效地发现程序语法错误、潜在的错误隐患、不合理的编程习惯等。</p>
-<p>FlexeLint for C/C++是在PC_lint在windows平台获得成功后，同样由Gimpel公司开发的，以源代码形式发布的，在Unix/Linux平台上的静态代码分析工具。</p>
-<p>本文主要介绍PC-lint的安装与配置，因此是在windows平台上进行讨论。</p>
-<p>PC-lint支持几乎所有流行的编译器和IDE环境，可能因为其发展历史和面对专业程序员群体的原因，它是以命令行加配置文件的形式进行使用，所以其使用习惯跟现在常见的windows软件不同。</p>
-<p>现以PC-lint与VS2005进行集成来说明：</p>
-<p>将PC-lint释放到某一目录下,如: <code>D:\Program Files\pclint</code> .将新建一std.lnt文件在主目录中，并将添加上以下的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">au-sm.lnt</div><div class="line">co-msc80.lnt</div><div class="line">lib-mfc.lnt</div><div class="line">lib-stl.lnt</div><div class="line">lib-w32.lnt</div><div class="line">lib-wnt.lnt</div><div class="line">lib-atl.lnt</div><div class="line">options.lnt  -si4 -sp4</div><div class="line"></div><div class="line">-i &quot;C:\Program Files\Microsoft Visual Studio 8\VC\include&quot;</div><div class="line">-i &quot;C:\Program Files\Microsoft Visual Studio 8\VC\atlmfc\include&quot;</div><div class="line">-i &quot;C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include&quot;</div><div class="line">-i &quot;C:\Program Files\Microsoft Visual Studio 8\SDK\v2.0\include&quot;</div></pre></td></tr></table></figure>
-<p>注意：-i后面为相应的vc头文件目录路径,而一系列xxx.lnt是语法配置规则，决定了按什么规则进行检查，以后可以根据需要进行增减. 写在配置文件中相应的的xxx.lnt从lnt子目录中，拷贝到主目录中．（这一步很重要) 在vs2005中的工具-&gt;外部工具中，点击＂添加”,新建一个外部工具.标题可以任意，可取(pc_lint)；命令为：<code>D:\Program Files\pclint\LINT-NT.EXE；参数为:-i&quot;D:\Program Files\pclint&quot; std.lnt &quot;$(ItemFileName)$(ItemExt)&quot;</code> ;初始目录为：$(ItemDir)，并将下面的＂使用输出窗口＂勾选上. 接下来，就可以写一段程序，在工具菜单中选择pc_lint 来进行检查了．如果你编写的程序有不符合定义的规范，则会在输出窗口中出现相关的信息.</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -527,6 +343,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -546,8 +366,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -583,6 +412,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -679,6 +519,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
