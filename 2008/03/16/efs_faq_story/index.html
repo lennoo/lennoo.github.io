@@ -84,19 +84,21 @@
 
 
 
-<meta name="description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
+<meta name="description" content="自从去年底娱乐圈曝出了”艳照门”事件后, 小Q就开始注意自己的私密文件了,在网上google加密软件,想把那些珍藏的AV小电影和情感小日记加密起来,防止一个不小心被人公布.网上的私人出品的小加密软件不敢用,怕被别人留了后门,至于安全性也没有保证.后在网上经高手指点,使用WinRAR软件的加密功能,把一个个文件压缩成包,并设置了密码.这东西倒是简单,但是小Q常常需要回顾一下这些小电影,以解单身之苦,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识PyGTK">
-<meta property="og:url" content="http://www.lennoo.com/2008/03/12/hello_pygtk/index.html">
+<meta property="og:title" content="小Q和小A的故事之EFS加密">
+<meta property="og:url" content="http://www.lennoo.com/2008/03/16/efs_faq_story/index.html">
 <meta property="og:site_name" content="Lennoo">
-<meta property="og:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
-<meta property="og:updated_time" content="2016-09-04T13:51:31.995Z">
+<meta property="og:description" content="自从去年底娱乐圈曝出了”艳照门”事件后, 小Q就开始注意自己的私密文件了,在网上google加密软件,想把那些珍藏的AV小电影和情感小日记加密起来,防止一个不小心被人公布.网上的私人出品的小加密软件不敢用,怕被别人留了后门,至于安全性也没有保证.后在网上经高手指点,使用WinRAR软件的加密功能,把一个个文件压缩成包,并设置了密码.这东西倒是简单,但是小Q常常需要回顾一下这些小电影,以解单身之苦,">
+<meta property="og:image" content="http://www.lennoo.com/images/efs_faq_story_1.jpg">
+<meta property="og:image" content="http://www.lennoo.com/images/efs_faq_story_2.jpg">
+<meta property="og:image" content="http://www.lennoo.com/images/efs_faq_story_3.jpg">
+<meta property="og:image" content="http://www.lennoo.com/images/efs_faq_story_4.jpg">
+<meta property="og:updated_time" content="2016-09-06T13:29:23.392Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识PyGTK">
-<meta name="twitter:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
+<meta name="twitter:title" content="小Q和小A的故事之EFS加密">
+<meta name="twitter:description" content="自从去年底娱乐圈曝出了”艳照门”事件后, 小Q就开始注意自己的私密文件了,在网上google加密软件,想把那些珍藏的AV小电影和情感小日记加密起来,防止一个不小心被人公布.网上的私人出品的小加密软件不敢用,怕被别人留了后门,至于安全性也没有保证.后在网上经高手指点,使用WinRAR软件的加密功能,把一个个文件压缩成包,并设置了密码.这东西倒是简单,但是小Q常常需要回顾一下这些小电影,以解单身之苦,">
+<meta name="twitter:image" content="http://www.lennoo.com/images/efs_faq_story_1.jpg">
 
 
 
@@ -117,9 +119,9 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/2008/03/12/hello_pygtk/"/>
+  <link rel="canonical" href="http://www.lennoo.com/2008/03/16/efs_faq_story/"/>
 
-  <title> 初识PyGTK | Lennoo </title>
+  <title> 小Q和小A的故事之EFS加密 | Lennoo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -238,7 +240,7 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
             
             
               
-                初识PyGTK
+                小Q和小A的故事之EFS加密
               
             
           </h1>
@@ -250,8 +252,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2008-03-12T19:43:00+08:00" content="2008-03-12">
-              2008-03-12
+            <time itemprop="dateCreated" datetime="2008-03-16T15:37:56+08:00" content="2008-03-16">
+              2008-03-16
             </time>
           </span>
 
@@ -261,8 +263,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2008/03/12/hello_pygtk/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/03/12/hello_pygtk/" itemprop="commentsCount"></span>
+                <a href="/2008/03/16/efs_faq_story/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/03/16/efs_faq_story/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,23 +287,27 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
       
 
       
-        <p>PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.</p>
-<p>PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.</p>
+        <p>自从去年底娱乐圈曝出了”艳照门”事件后, 小Q就开始注意自己的私密文件了,在网上google加密软件,想把那些珍藏的AV小电影和情感小日记加密起来,防止一个不小心被人公布.网上的私人出品的小加密软件不敢用,怕被别人留了后门,至于安全性也没有保证.后在网上经高手指点,使用WinRAR软件的加密功能,把一个个文件压缩成包,并设置了密码.这东西倒是简单,但是小Q常常需要回顾一下这些小电影,以解单身之苦,偶尔又写下日记.这样一来,常常就需要输入密码,解压,解渴,压缩,麻烦又耗时，且WinRAR密码又不能太简单，不然有被暴力破解的可能．</p>
 <a id="more"></a>
-<p>PyGTK是自由软件,所以你能几乎没有任何限制的使用，修改，分发，研究它，它是基于LGPL协议发布的．</p>
-<p>如果你对上面提到的GTK+,也不了解的话，那允许再对它也进行一番介绍．GTK+，用C语言开发的，具有跨平台的GUI库，它是GNOME桌面系统(如果你在用Linux，一定不陌生)和GIMP图象编辑器的开发工具箱．它是世界上许多程序员的选择，对他们来说，国际化的支持是必要的，而且性能也总是他们考虑的因素．与GTK同一领域的还有Qt库，它是由商业公司开发的C++图形库，虽然它也有免费的．</p>
-<h1 id="在windows平台的安装和开发"><a href="#在windows平台的安装和开发" class="headerlink" title="在windows平台的安装和开发"></a>在windows平台的安装和开发</h1><p>安装PyGTK只需执行下列步骤：</p>
-<ul>
-<li><p>安装Python2.4或以上的windows版本<a href="http://www.python.org" target="_blank" rel="external">www.python.org</a></p>
-</li>
-<li><p>从GTK+/Glade的windows版本的GTK+ 2.10开发运行时环境<a href="http://gladewin32.sourceforge.net" target="_blank" rel="external">gladewin32.sourceforge.net</a></p>
-</li>
-<li><p>从PyGTK网站下载安装PyCairo,PyGobject和PyGTK安装包，注意这些需全部安装才能使PyGTK工作[pygtk.org]<br>或许你对这些步骤还感到麻烦，或者对Python不熟悉的话，那也没有关系，直接下载一键安装包all-in-one installer,为你配置好全部运行时环境．</p>
-</li>
-</ul>
-<p>看看开发环境是否配置正确，将下列代码作为Python脚本或者在Python交互控制台下输入．如果正确的话，应该有一个标题为 <strong>“Hello World”</strong> 的windows的空窗口呈现在你面前．</p>
-<p>如果不能运行的话，有可能会出现一个不能成功加载dll的错误提示，这是因为缺少iconv.dll．这时需要只需从网上下载过来，拷贝至windows/system32目录下即可了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import gtk</div><div class="line">window = gtk.Window()</div><div class="line">window.set_title(&quot;Hello World&quot;)</div><div class="line">window.show_all()</div><div class="line"></div><div class="line">gtk.main()</div></pre></td></tr></table></figure>
+<p>小Q又在忙活了，凑巧被密友小A看到，将情况如实向小A说了．小A是个计算机迷，知道小Q需求后，立即问到：你怎么不用Windows自带的EFS加密呀?</p>
+<p>小Q:什么是EFS加密呀?</p>
+<p>小A:EFS阿，就是Encryption File System,反正跟你说英语也不清楚，就是加密文件系统，是Windows 2000开始所特有的一个实用功能，对于NTFS卷上的文件和数据，都可以直接被操作系统加密保存．EFS加密是基于公钥策略的,安全的很.</p>
+<p>小A就是这样喜欢卖弄一下英语和专业词汇,这样才显得水平高.</p>
+<p>小Q:那你说的公钥策略是什么呀?</p>
+<p>小A:公钥要这可要从加密领域说起.就拿你用WinRAR加密文件来说吧,WinRAR是使用DES对称加密算法,也就是加解密都是用同一个密码.还再教你个新词,搞计算机的人,密码不叫密码,要说成密钥,相当于开锁的钥匙,这样才显得X.而公钥策略呢,加解密不是用同一密码,一般加密的叫公钥,解密的叫私钥.</p>
+<p>小Q:阿,弄得这么麻烦呀,那我给文件加个密后,输入密码后,怎么知道私钥是什么呀?</p>
+<p>小A:这个EFS加密呀,不用你输入密码.它在加密时,会自动为你生成公钥和私钥,公钥和私钥的长度很长.打个比方,如果你平时用到密码很长很复杂,你会怎么办呢?是不是把密码抄在本子什么的,然后用到的时候拿出来看呀.这公钥和密钥的信息就跟所谓的证书绑定在一起了,也就相当于小本子.</p>
+<p>小Q:阿,私钥自动生成放在电脑里,那不是相当于还是没有加过密,不安全呀?</p>
+<p>小A:私钥是放在你的硬盘上,但是windows用你的帐户信息为依据又加了层密．如果你能用你的用户帐号登陆系统，也就完成了验证工作．如果你用另外个帐号登陆的话，那些EFS加密过的文件，就无权获取了．即使你不通过windwos系统，获得了存储密钥的物理空间，也是无法进行解密的．这样才显得安全．</p>
+<p>小Q:你说得这些，我也不是怎么懂，就说说怎么用这个EFS吧．</p>
+<p>小A:好的．这个EFS呀，正如我上面所说的，要在Windows2000以上的系统才可以，还有一点，这样高级的功能，家庭版(windows xp home, windows vista home)可用不了．右击你需要加密的文件和文件夹，选择＂属性＂，然后点击＂属性＂对话框的＂高级…＂,在＂高级属性＂中勾选上＂加密内容以便保护数据＂即可．如果不想加密了的话，去掉勾选即可．</p>
+<p><img src="/images/efs_faq_story_1.jpg" alt=""></p>
+<p><img src="/images/efs_faq_story_2.jpg" alt=""></p>
+<p>小Q:好了，这么简单，学会了．</p>
+<p>小A:还没有好呢，再跟你说点．不然到时候，你重装系统，打不开加密的文件又要哭了．我说过这EFS是用公钥策略的，如果没有私钥是你是打不开加密过的文件．然而你重装系统后，原来私钥是由用户信息加密过的，即使你重新取了相同的用户名还是不行的．所以呀，你要装原先的密钥提前备份好，这样加密过的文件，无论在你的电脑里，还是转移到其他NTFS的格式的硬盘里，都可以打开．密钥是与证书关联的，这样我们就要做好证书的备份工作．我简要说下证书备份吧．在开始菜单的＂运行＂中输入certmgr.msc，打开证书管理终端,在个人-证书中，会看到一个预期目的为＂加密文件系统＂的证书，这是在第一次使用加密后自动生成的．右击该证书，在所有任务中，选择＂导出…”,通过证书导出向导，按照提示选择对应的选项即可．</p>
+<p><img src="/images/efs_faq_story_3.jpg" alt=""></p>
+<p><img src="/images/efs_faq_story_4.jpg" alt=""></p>
+<p>在输入密码，选择存储位置后，你会看到你所取名的xxx.pfx文件．下次你重装系统或在别的机子要打开加密的文件，只要要双击.pfx文件，按向导导入即可．这个.pfx文件可要保存好，不要让人拿去了．这个文件相当于钥匙，谁有这把钥匙，谁就能打开加密文件了．</p>
 
       
     </div>
@@ -327,16 +333,16 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2008/01/30/pc_lint/" rel="next" title="PC-Lint简介">
-                <i class="fa fa-chevron-left"></i> PC-Lint简介
+              <a href="/2008/03/12/hello_pygtk/" rel="next" title="初识PyGTK">
+                <i class="fa fa-chevron-left"></i> 初识PyGTK
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2008/03/16/efs_faq_story/" rel="prev" title="小Q和小A的故事之EFS加密">
-                小Q和小A的故事之EFS加密 <i class="fa fa-chevron-right"></i>
+              <a href="/2012/05/25/amazon_ec2_register_application/" rel="prev" title="Amazon EC2注册及应用">
+                Amazon EC2注册及应用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -363,8 +369,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2008/03/12/hello_pygtk/"
-           data-title="初识PyGTK" data-url="http://www.lennoo.com/2008/03/12/hello_pygtk/">
+      <div class="ds-thread" data-thread-key="2008/03/16/efs_faq_story/"
+           data-title="小Q和小A的故事之EFS加密" data-url="http://www.lennoo.com/2008/03/16/efs_faq_story/">
       </div>
     
   </div>
@@ -441,7 +447,7 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在windows平台的安装和开发"><span class="nav-number">1.</span> <span class="nav-text">在windows平台的安装和开发</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
