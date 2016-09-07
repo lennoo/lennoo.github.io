@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
+<meta name="description" content="Glade是针对GTK+工具箱与GNOME桌面开发环境的快速图形界面开发工具.用Glade设计的用户接口以XML的文件形式保存,然后根据需要由程序通过libglade库文件来动态加载.因为使用了libglade库,Glade XML文件能够被C,C++,Java,Perl,Python,C#等等语言所支持.针对其他未涉及的语言的支持也是方便的.
+在网上可以见到某些关于Glade的教程,大都是关于L">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识PyGTK">
-<meta property="og:url" content="http://www.lennoo.com/2008/03/12/hello_pygtk/index.html">
+<meta property="og:title" content="Say Hello to Glade">
+<meta property="og:url" content="http://www.lennoo.com/2008/03/27/say_hello_to_glade/index.html">
 <meta property="og:site_name" content="Lennoo">
-<meta property="og:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
-<meta property="og:updated_time" content="2016-09-04T13:51:31.995Z">
+<meta property="og:description" content="Glade是针对GTK+工具箱与GNOME桌面开发环境的快速图形界面开发工具.用Glade设计的用户接口以XML的文件形式保存,然后根据需要由程序通过libglade库文件来动态加载.因为使用了libglade库,Glade XML文件能够被C,C++,Java,Perl,Python,C#等等语言所支持.针对其他未涉及的语言的支持也是方便的.
+在网上可以见到某些关于Glade的教程,大都是关于L">
+<meta property="og:image" content="http://www.lennoo.com/images/say_hello_to_glade_1.jpg">
+<meta property="og:image" content="http://www.lennoo.com/images/say_hello_to_glade_2.jpg">
+<meta property="og:updated_time" content="2016-09-07T05:07:54.188Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识PyGTK">
-<meta name="twitter:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
+<meta name="twitter:title" content="Say Hello to Glade">
+<meta name="twitter:description" content="Glade是针对GTK+工具箱与GNOME桌面开发环境的快速图形界面开发工具.用Glade设计的用户接口以XML的文件形式保存,然后根据需要由程序通过libglade库文件来动态加载.因为使用了libglade库,Glade XML文件能够被C,C++,Java,Perl,Python,C#等等语言所支持.针对其他未涉及的语言的支持也是方便的.
+在网上可以见到某些关于Glade的教程,大都是关于L">
+<meta name="twitter:image" content="http://www.lennoo.com/images/say_hello_to_glade_1.jpg">
 
 
 
@@ -117,9 +120,9 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/2008/03/12/hello_pygtk/"/>
+  <link rel="canonical" href="http://www.lennoo.com/2008/03/27/say_hello_to_glade/"/>
 
-  <title> 初识PyGTK | Lennoo </title>
+  <title> Say Hello to Glade | Lennoo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -238,7 +241,7 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
             
             
               
-                初识PyGTK
+                Say Hello to Glade
               
             
           </h1>
@@ -250,8 +253,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2008-03-12T19:43:00+08:00" content="2008-03-12">
-              2008-03-12
+            <time itemprop="dateCreated" datetime="2008-03-27T20:49:00+08:00" content="2008-03-27">
+              2008-03-27
             </time>
           </span>
 
@@ -261,8 +264,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2008/03/12/hello_pygtk/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/03/12/hello_pygtk/" itemprop="commentsCount"></span>
+                <a href="/2008/03/27/say_hello_to_glade/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/03/27/say_hello_to_glade/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,23 +288,16 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
       
 
       
-        <p>PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.</p>
-<p>PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.</p>
+        <p>Glade是针对GTK+工具箱与GNOME桌面开发环境的快速图形界面开发工具.用Glade设计的用户接口以XML的文件形式保存,然后根据需要由程序通过libglade库文件来动态加载.因为使用了libglade库,Glade XML文件能够被C,C++,Java,Perl,Python,C#等等语言所支持.针对其他未涉及的语言的支持也是方便的.</p>
+<p>在网上可以见到某些关于Glade的教程,大都是关于Linux平台和Glade 2的,因为原先Glade作为快速开发工具,集成代码生成功能,生成C文件.所以常常有初学者对网上某些教程所提及的”generate”(生成代码)功能表示迷惑,在新版本的Glade-3上找不到对应的功能.</p>
 <a id="more"></a>
-<p>PyGTK是自由软件,所以你能几乎没有任何限制的使用，修改，分发，研究它，它是基于LGPL协议发布的．</p>
-<p>如果你对上面提到的GTK+,也不了解的话，那允许再对它也进行一番介绍．GTK+，用C语言开发的，具有跨平台的GUI库，它是GNOME桌面系统(如果你在用Linux，一定不陌生)和GIMP图象编辑器的开发工具箱．它是世界上许多程序员的选择，对他们来说，国际化的支持是必要的，而且性能也总是他们考虑的因素．与GTK同一领域的还有Qt库，它是由商业公司开发的C++图形库，虽然它也有免费的．</p>
-<h1 id="在windows平台的安装和开发"><a href="#在windows平台的安装和开发" class="headerlink" title="在windows平台的安装和开发"></a>在windows平台的安装和开发</h1><p>安装PyGTK只需执行下列步骤：</p>
-<ul>
-<li><p>安装Python2.4或以上的windows版本<a href="http://www.python.org" target="_blank" rel="external">www.python.org</a></p>
-</li>
-<li><p>从GTK+/Glade的windows版本的GTK+ 2.10开发运行时环境<a href="http://gladewin32.sourceforge.net" target="_blank" rel="external">gladewin32.sourceforge.net</a></p>
-</li>
-<li><p>从PyGTK网站下载安装PyCairo,PyGobject和PyGTK安装包，注意这些需全部安装才能使PyGTK工作[pygtk.org]<br>或许你对这些步骤还感到麻烦，或者对Python不熟悉的话，那也没有关系，直接下载一键安装包all-in-one installer,为你配置好全部运行时环境．</p>
-</li>
-</ul>
-<p>看看开发环境是否配置正确，将下列代码作为Python脚本或者在Python交互控制台下输入．如果正确的话，应该有一个标题为 <strong>“Hello World”</strong> 的windows的空窗口呈现在你面前．</p>
-<p>如果不能运行的话，有可能会出现一个不能成功加载dll的错误提示，这是因为缺少iconv.dll．这时需要只需从网上下载过来，拷贝至windows/system32目录下即可了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import gtk</div><div class="line">window = gtk.Window()</div><div class="line">window.set_title(&quot;Hello World&quot;)</div><div class="line">window.show_all()</div><div class="line"></div><div class="line">gtk.main()</div></pre></td></tr></table></figure>
+<p>新版本的Glade-3是对原先Glade代码的完全重写.一个显著的变化就是去除了代码生成功能.这样做是有原因的,即然代码生成功能不被提倡使用,而是更鼓励使用libglade功能.但是如果你真需要代码生成功能的话,它还是可以做为插件来提供的.另一个显著的不同是glade-3设计用来最大化使用GObject的自省机制(GObject introspection),来使外部工具箱和部件的控制,信号和属性的集成更加容易.</p>
+<p>如果看过Say Hello to GTK+的话，可能感觉那样的窗体程序太简单了．那么现在让我们借助Glade弄点儿复杂一点儿的界面吧．首先来瞧瞧Glade长什么样,下图就是Glade在windows下的界面.左边的窗体的小部件选择器，相当于调色板．中间是主菜单，右边的是属性窗体．</p>
+<p><img src="/images/say_hello_to_glade_1.jpg" alt=""></p>
+<p>现在开始创建一个类似于文本编辑器的图形界面．按照上图标注的顺序，依次添加window部件，vertical box部件,menu bar部件,text view部件和Status部件.vertical box设置三行，它是用来进行界面布局，分割空间用，这是gtk+设计与传统的windows UI设计很不同的地方．后三个部件是放置vertical box中的，最后设计完成图形如下．保存取名为win.glade.如果你感兴趣的话，可以用文件编辑器打开这个文件看看，正如所说的那样，它是一个xml格式的文本文件．</p>
+<p><img src="/images/say_hello_to_glade_2.jpg" alt=""></p>
+<p>现在我们设置相关的头文件和库文件，编辑一个glade.c文件，添加进以下的代码，运行看看，会出现如上图的对话框．虽然这个对话框什么都不干，但是通过Glade，我们能较为容易地设计界面，而不用通过gtk函数，一个一个将控件实现.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#include &lt;gtk/gtk.h&gt;</div><div class="line">#include &lt;glade/glade.h&gt;</div><div class="line">int main(int argc, char* argv[])</div><div class="line">&#123;</div><div class="line">	GladeXML        *gxml;</div><div class="line">	GtkWidget       *window;</div><div class="line"></div><div class="line">	gtk_init (&amp;argc, &amp;argv);</div><div class="line">	gxml = glade_xml_new (&quot;win.glade&quot;, NULL, NULL);</div><div class="line">	window = glade_xml_get_widget (gxml, &quot;hello&quot;);</div><div class="line">	g_object_unref (G_OBJECT (gxml));</div><div class="line">	gtk_widget_show (window);                </div><div class="line">	gtk_main ();</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -327,16 +323,16 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2008/01/30/pc_lint/" rel="next" title="PC-Lint简介">
-                <i class="fa fa-chevron-left"></i> PC-Lint简介
+              <a href="/2008/03/23/say_hello_to_gtk+/" rel="next" title="Say Hello to GTK+">
+                <i class="fa fa-chevron-left"></i> Say Hello to GTK+
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2008/03/16/efs_faq_story/" rel="prev" title="小Q和小A的故事之EFS加密">
-                小Q和小A的故事之EFS加密 <i class="fa fa-chevron-right"></i>
+              <a href="/2008/05/18/boost_lambda_brief/" rel="prev" title="Boost.Lambda是什么?">
+                Boost.Lambda是什么? <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -363,8 +359,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2008/03/12/hello_pygtk/"
-           data-title="初识PyGTK" data-url="http://www.lennoo.com/2008/03/12/hello_pygtk/">
+      <div class="ds-thread" data-thread-key="2008/03/27/say_hello_to_glade/"
+           data-title="Say Hello to Glade" data-url="http://www.lennoo.com/2008/03/27/say_hello_to_glade/">
       </div>
     
   </div>
@@ -441,7 +437,7 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在windows平台的安装和开发"><span class="nav-number">1.</span> <span class="nav-text">在windows平台的安装和开发</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
