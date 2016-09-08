@@ -1,0 +1,604 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="lennoo" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="cURL是一个利用URL语法的文件传输工具,是基于libcurl的前端命令行工具。它支持很多协议：FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE 以及 LDAP。 它同样支持HTTPS认证，HTTP POST方法, HTTP PUT方法, FTP上传, kerberos认证, HTTP上传, 代理服务器, cookies, 用户名/密码认证,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强大的网络传输工具cURL和libcurl">
+<meta property="og:url" content="http://www.lennoo.com/2008/05/26/powerful_network_tool_curl_libcurl/index.html">
+<meta property="og:site_name" content="Lennoo">
+<meta property="og:description" content="cURL是一个利用URL语法的文件传输工具,是基于libcurl的前端命令行工具。它支持很多协议：FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE 以及 LDAP。 它同样支持HTTPS认证，HTTP POST方法, HTTP PUT方法, FTP上传, kerberos认证, HTTP上传, 代理服务器, cookies, 用户名/密码认证,">
+<meta property="og:updated_time" content="2016-09-08T04:49:53.512Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="强大的网络传输工具cURL和libcurl">
+<meta name="twitter:description" content="cURL是一个利用URL语法的文件传输工具,是基于libcurl的前端命令行工具。它支持很多协议：FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE 以及 LDAP。 它同样支持HTTPS认证，HTTP POST方法, HTTP PUT方法, FTP上传, kerberos认证, HTTP上传, 代理服务器, cookies, 用户名/密码认证,">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.lennoo.com/2008/05/26/powerful_network_tool_curl_libcurl/"/>
+
+  <title> 强大的网络传输工具cURL和libcurl | Lennoo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83677513-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lennoo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                强大的网络传输工具cURL和libcurl
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2008-05-26T11:40:08+08:00" content="2008-05-26">
+              2008-05-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2008/05/26/powerful_network_tool_curl_libcurl/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/05/26/powerful_network_tool_curl_libcurl/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>cURL是一个利用URL语法的文件传输工具,是基于libcurl的前端命令行工具。它支持很多协议：FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE 以及 LDAP。 它同样支持HTTPS认证，HTTP POST方法, HTTP PUT方法, FTP上传, kerberos认证, HTTP上传, 代理服务器, cookies, 用户名/密码认证, 下载文件断点续传, 上载文件断点续传, http代理服务器管道（ proxy tunneling）, 甚至它还支持IPv6, socks5代理服务器,通过http代理服务器上传文件到FTP服务器等等，功能十分强大。</p>
+<a id="more"></a>
+<p>除了使用curl命令行直接进行相关的网络操作，你也可以自由地使用libcurl,它是用C语言编写的，可以绑定到众多的编程语言中，如C,C++,PHP,Python,Perl,Java等等。你可以很方便地利用libcurl，在程序中进行一些网络传输工作，来代替一些语言的内置，使你的知识可重用。在Unix工作环境下，你可以用curl代替wget和ftp等工具，并能将这种学习经验迁移到将来使用libcurl来完成一些自动化任务。</p>
+<p>curl是瑞典curl组织开发的，可以通过(<a href="http://curl.haxx.se/)来获取更详细的信息和下载文件。" target="_blank" rel="external">http://curl.haxx.se/)来获取更详细的信息和下载文件。</a></p>
+<h1 id="curl命令行工具使用"><a href="#curl命令行工具使用" class="headerlink" title="curl命令行工具使用"></a>curl命令行工具使用</h1><p>curl太强大了，只能对其HTTP的部分作一简单的介绍，其他选项可以参见其附带的手册。它的后端库的使用也非常方便，主要也是在选项设置上，跟命令行基本无异。</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p><code>curl [选项] [URL...]</code></p>
+<h2 id="URL-语法"><a href="#URL-语法" class="headerlink" title="URL 语法"></a>URL 语法</h2><p>URL语法是跟协议相关的，具体细节可参见RFC 3986<br>可以指定多个URLs或者部分URL地址，通过花括号{}进行分割：<br><a href="http://site.{one,two,three}.com" target="_blank" rel="external">http://site.{one,two,three}.com</a><br>或者用[]使用字母序：<br>ftp://ftp.numericals.com/file[1-100].txt<br>ftp://ftp.numericals.com/file[001-100].txt (有前导零)<br>ftp://ftp.letters.com/file[a-z]].txt</p>
+<p>当前序列嵌套不被支持，但是还是可以使用下列的样式：<br><a href="http://any.org/archive[1996-1999]/vol[1-4]/part{a,b,c}.html" target="_blank" rel="external">http://any.org/archive[1996-1999]/vol[1-4]/part{a,b,c}.html</a><br>可以在命令行指定任意数量的URLs,它们将以指定的顺序被取回。</p>
+<p>从curl7.15.1开始指定可以范围步长，所以可以得到第n个数或字母：<br><a href="http://www.numericals.com/file[1-100:10].txt" target="_blank" rel="external">http://www.numericals.com/file[1-100:10].txt</a><br><a href="http://www.letters.com/file[a-z:2].txt" target="_blank" rel="external">http://www.letters.com/file[a-z:2].txt</a></p>
+<p>如果使用了protocal://前缀，curl会将尝试你想使用的协议。它默认使用HTTP，但是其他一些协议也常被用作主机名。比如说，以”ftp”打头的主机名，curl会假定你想使用ftp协议。</p>
+<p>Curl会尝试对多文件传输使用重连接，可以使从同一服务器获取很多文件时，不会进行多次的连接。这种做法改进了速度，当然这只会在同一命令行中指定的文件启用，而不会在独立的Curl调用时使用。</p>
+<h2 id="进度指示器"><a href="#进度指示器" class="headerlink" title="进度指示器"></a>进度指示器</h2><p>curl通常在操作时会显示一个进度指示器，来指明当前的传输量，传输速度和预计的剩余时间等等。</p>
+<p>但是，即然curl默认将数据显示在终端，如果你调用curl进行操作，它会将数据打印到终端上，这时它会禁用掉进度指示器，否则这些会将输出信息搞乱掉。</p>
+<p>如果在进行HTTP的POST或PUT请求时，你想将输出重定向到文件中，可以使用shell的重定向符(&gt;)，或者类似的-o[file]选项。</p>
+<p>但是在FTP上传并不会这样，这些操作不会将数据插入到终端中。</p>
+<p>如果想使用进度栏，而不是常规的指示器，那么-#会非常有帮助。</p>
+<h2 id="常用的HTTP选项"><a href="#常用的HTTP选项" class="headerlink" title="常用的HTTP选项"></a>常用的HTTP选项</h2><p><strong>-A/–user-agent<agent string=""></agent></strong><br>(HTTP)指定用户代理字符串发送给HTTP服务器。如果这个字段没有被设为”Mozilla/4.0”，某些CGIs将不会正常工作。如果在字符串中存在空白字符，需要用单引号标识。这个字段值也可用-H/–header选项进行设置。<br>如果这选项被多次设置，最后的设置将起作用。</p>
+<p><strong>-b/–cookie<name=data></name=data></strong><br>(HTTP)将data作为cookie传给HTTP服务器，这数据当然是在使用了”Set-Cookie:”后，先前从服务端接收到的。这数据应是”NAME1=VALUE1;NAME2=VALUE2”的格式。<br>如果没有”=”字符，它将会当作先前存储cookie行的文件名，如果它能被匹配的话。使用这选项，也能激活”cookie parser”，它使curl记录传入的cookies数据。将它与-L/–locaion选项组合将会更加便利。被读取cookie的文件格式应当是文本HTTP头或者Netscape/Mozilla cookie文件格式。<br>注意：被-b/–cookie指定的文件只能作为输入使用。没有cookie会存储在这文件中。为了存储cookie，应使用-c/–cookie-jar选项或者直接将HTTP头输出到文件中，用-D/–dump-header选项。这选项可以设置多次，但是只有最后一个起作用。</p>
+<p><strong>-connect-timeout<seconds></seconds></strong><br>以秒计的最大超时，用于进行服务器连接时。这只在连接阶段起作用，一旦curl连接建立，这选项将不再起作用。</p>
+<p><strong>-c/–cookie-jar<file name=""></file></strong><br>指定在完成一系列操作后，需要将全部的cookie信息保存到哪个文件中。Curl会将先前读取的cookie的信息和从服务器返回的信息一起保存。如果没有cookie信息，则不会进行写文件。cookie信息的文件将与Netscape cookie文件格式保存。如果文件名被设置为’-‘，则将cookie打印至终端。<br>注意：如果cookie-jar不能被创建写入，整个curl操作也不会失改，甚至不会向你报告错误.使用-v将会得到警告显示，但也只能在可能导致发生致命错误的情况才会显示。</p>
+<p><strong>–create-dirs</strong><br>这与-o选项配合使用，curl会在需要时建立本地文件夹结构。这选项会创建在-o选项中涉及到的文件夹。如果-o选项中的文件名没有使用到文件夹，或者所需的文件夹已经存在，则不会有文件夹创建。</p>
+<p><strong>-D/–dump-header<file></file></strong><br>将协议头写到指定的文件中。当你想存储HTTP站点发给你的数据时，这选项非常有用。在协议头中的cookie将来可以用curl的另外调用来进行读取，那就是-b/–cookie选项。但是-c/–cookie-jar选项将会是更好的存储cookie信息的方法。<br>当使用FTP协议时，ftp服务器的应答信息将相应地当作成协议头，然后被存储。</p>
+<p><strong>-p/-proxytunnel</strong><br>当HTTP代理被设置后(-x/–proxy)，选项会使不是HTTP协议的传输试图通过代理隧道，而不是表现得HTTP类似的操作形为。代理隧道的方法是通过HTTP服务器直接使用CONNECT请求，让代理直接连接到curl隧道所请求的远程端口号的方式来实现的。</p>
+<p><strong>-o/–output<file></file></strong><br>将输出信息打印到文件中，而不是终端。可使用{}或者[]取回多个文档，可在file指定格式中的’#’跟一数字，这样这变量将会由取回的URL字符串所取代。如下：<br>curl <a href="http://{one,two}.site.com" target="_blank" rel="external">http://{one,two}.site.com</a> -o “file<em>#1.txt”<br>如果有多个变量，可以写成下面的样子：<br>curl <a href="http://{site.host}.host[1-5].com" target="_blank" rel="external">http://{site.host}.host[1-5].com</a> -o “#1</em>#2”<br>你可对任意数量的URL使用同样多的这个选项</p>
+<p><strong>-x/–proxy<proxyhost[:port]></proxyhost[:port]></strong><br>使用指定的HTTP代理，如果端口号没有被指定，默认为1080.<br>这选项会覆盖环境变量中代理服务器的设置。如果环境变量中设置了代理，可将proxy设置为空字符串，来覆盖环境变量中的设置。<br>注意：所有通过HTTP代理的操作都会自动转化为HTTP协议。这意味着一些特定协议的操作将会变得无效。这不会有问题，如果在设置了-p/–proxytunnel选项来通过代理隧道进行操作。</p>
+<h1 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h1><p>获取cppblog首页，打印至终端</p>
+<p><code>&gt;curl http://www.cppblog.com</code><br>重定向，保存到文件cppblog.html<br><code>&gt;curl http://www.cppblog.com</code><br>作用同上，使用选项<br><code>&gt;curl -o baidu.html http://www.baidu.com</code><br>使用http代理，可指定IP和端口<br><code>&gt;curl -x 202.127.98.43:80 -o baidu.html http:www.baidu.com</code><br>在访问一些论坛时，常常要求启用cookie，因为这些网站需要启用cookie来记录sessioin信息,这时需要选项-D，将cookie信息保存起来<br><code>&gt;curl -o cpp.html -c len@cppblog.com[1].txt http://www.cppblog.com</code></p>
+<p>先前保存的cookie信息返回给网站,这通常会传回你的一些用户信息。<br><code>&gt;curl -o cpp.html -c len@cppblog.com[2].txt -b len@cppblog.com[1].txt http://www.cppblog.com</code></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/05/25/cute_vim/" rel="next" title="可爱的Vim">
+                <i class="fa fa-chevron-left"></i> 可爱的Vim
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/06/01/xmanage_remote_connect_ubuntu/" rel="prev" title="Xmanager远程连接ubuntu">
+                Xmanager远程连接ubuntu <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2008/05/26/powerful_network_tool_curl_libcurl/"
+           data-title="强大的网络传输工具cURL和libcurl" data-url="http://www.lennoo.com/2008/05/26/powerful_network_tool_curl_libcurl/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Len Kong" />
+          <p class="site-author-name" itemprop="name">Len Kong</p>
+          <p class="site-description motion-element" itemprop="description">Keep it simple</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#curl命令行工具使用"><span class="nav-number">1.</span> <span class="nav-text">curl命令行工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用法"><span class="nav-number">1.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-语法"><span class="nav-number">1.2.</span> <span class="nav-text">URL 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进度指示器"><span class="nav-number">1.3.</span> <span class="nav-text">进度指示器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的HTTP选项"><span class="nav-number">1.4.</span> <span class="nav-text">常用的HTTP选项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单示例"><span class="nav-number">2.</span> <span class="nav-text">简单示例</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Len Kong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lennoo"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="Keep it simple">
+<meta name="description" content="Subversion的属性是非常好用的功能,它将一些工作自动化，实现为受版本控制的源文件添加元信息的作用。属性是外部不可见的，可以简单认为是附加上在文件上的信息，和文件大小之类的信息是一样的，只不过他是通过subversion来管理的。属性的名称和值可以是你希望的任何值，限制就是名称必须是可读的文本，并且最好的一点是这些属性也是版本化的，就像你的文本文件内容，你可以像提交文本修改一样修改、提交和恢">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lennoo">
-<meta property="og:url" content="http://www.lennoo.com/archives/2012/05/index.html">
+<meta property="og:title" content="好用的Subversion属性功能">
+<meta property="og:url" content="http://www.lennoo.com/posts/useful_subversion_property.html">
 <meta property="og:site_name" content="Lennoo">
-<meta property="og:description" content="Keep it simple">
+<meta property="og:description" content="Subversion的属性是非常好用的功能,它将一些工作自动化，实现为受版本控制的源文件添加元信息的作用。属性是外部不可见的，可以简单认为是附加上在文件上的信息，和文件大小之类的信息是一样的，只不过他是通过subversion来管理的。属性的名称和值可以是你希望的任何值，限制就是名称必须是可读的文本，并且最好的一点是这些属性也是版本化的，就像你的文本文件内容，你可以像提交文本修改一样修改、提交和恢">
+<meta property="og:updated_time" content="2016-09-08T04:50:38.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lennoo">
-<meta name="twitter:description" content="Keep it simple">
+<meta name="twitter:title" content="好用的Subversion属性功能">
+<meta name="twitter:description" content="Subversion的属性是非常好用的功能,它将一些工作自动化，实现为受版本控制的源文件添加元信息的作用。属性是外部不可见的，可以简单认为是附加上在文件上的信息，和文件大小之类的信息是一样的，只不过他是通过subversion来管理的。属性的名称和值可以是你希望的任何值，限制就是名称必须是可读的文本，并且最好的一点是这些属性也是版本化的，就像你的文本文件内容，你可以像提交文本修改一样修改、提交和恢">
 
 
 
@@ -113,9 +114,15 @@
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/archives/2012/05/"/>
+  <link rel="canonical" href="http://www.lennoo.com/posts/useful_subversion_property.html"/>
 
-  <title> 归档 | Lennoo </title>
+  <title>
+  
+
+  
+    好用的Subversion属性功能 | Lennoo
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,66 +220,27 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 12 篇日志。 继续努力。
-    </span>
+  <div id="posts" class="posts-expand">
+    
+    
+      <p>Subversion的属性是非常好用的功能,它将一些工作自动化，实现为受版本控制的源文件添加元信息的作用。属性是外部不可见的，可以简单认为是附加上在文件上的信息，和文件大小之类的信息是一样的，只不过他是通过subversion来管理的。属性的名称和值可以是你希望的任何值，限制就是名称必须是可读的文本，并且最好的一点是这些属性也是版本化的，就像你的文本文件内容，你可以像提交文本修改一样修改、提交和恢复属性修改，当你更新时也会接收到别人的属性修改—你不必为适应属性改变你的工作流程。</p>
+<a id="more"></a>
+<p>Subversion保留了一组名称以svn:开头的属性，来预定义一些有用的功能。比如你常会看到一些人的源代码底部有像下面之类标识的文字：</p>
+<p><code>$Id: main_window.py 68 2008-06-30 02:05:05Z Len $</code></p>
+<p>这就使用了Subversion 中的 svn:keywords的自动属性，它让将发生在源代码中的一些属性的变化自动地更新到源代码中。这行字的意思是表示，main_windows.py 这个源代码文件最后被用户 len 更新于 2008-6-30 02:05:05Z，修订版本号为 68。要实现这样的自动更新，你只要对需要这样属性的文件上使用下面这行指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; svn propset svn:keywords &quot;Id&quot; main_window.py</div></pre></td></tr></table></figure>
+<p>或者使用TortoiseSVN中的Properties的操作按钮，方便地增加新的属性。接着需要在源代码文件中需要 Subversion 进行自动更新的地方插入 $Id$ 这样的 Keyword，那么在你下次进行提交更新时，该$Id$ 就会被 Subversion 自动替换为$Id: main_window.py 68 2008-06-30 02:05:05Z Len $ 这样的格式。<br>Subversion 中可以使用的Keyword 包括下面这些：</p>
+<ul>
+<li>Id<br>上面介绍过的综合的格式</li>
+<li>LastChangedDate<br>最后被修改的时间，缩写为 Date。</li>
+<li>LastChangedBy<br>最后修改该源代码文件的用户名，缩写为 Author。</li>
+<li>LastChangedRevision </li>
+</ul>
+<p>最后修订的版本号，缩写为 Revision。<br>如果想每次向Subversion服务器提交文件修改时，都要设置文件的属性，则需要进行Subversion配置的修改。配置文件在你用户的主目录下，在Windows下应类似于C:\Documents and Settings\Len\Application Data\Subversion\config文件，Len是Windows用户名，注意Application Data是隐藏文件夹，需要显示全部文件才能看到。接着如下相应的修改，对你想要处理的文件做配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">enable-auto-props = yes   </div><div class="line">[auto-props]   </div><div class="line">*.c = svn:keywords=Id   </div><div class="line">*.py = svn:keywords=Id</div></pre></td></tr></table></figure></p>
+<p>对于开源项目，常见其源文件头部有着版权声明的文本，这些操作大多也是通Subversion的属性功能来完成的，有关更详细的介绍和操作指南，可参见Subversion中文手册中的属性章节。</p>
 
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2012">2012</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2012/05/25/amazon_ec2_register_application/" itemprop="url">
-              
-                <span itemprop="name">Amazon EC2注册及应用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2012-05-25T23:03:08+08:00"
-              content="2012-05-25" >
-          05-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
+  </div>
 
 
           </div>
@@ -280,6 +248,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/useful_subversion_property.html"
+           data-title="好用的Subversion属性功能" data-url="http://www.lennoo.com/posts/useful_subversion_property.html">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -432,12 +408,6 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   
 

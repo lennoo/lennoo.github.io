@@ -84,19 +84,15 @@
 
 
 
-<meta name="description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="初识PyGTK">
-<meta property="og:url" content="http://www.lennoo.com/2008/03/12/hello_pygtk/index.html">
+<meta name="description" content="Keep it simple">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lennoo">
+<meta property="og:url" content="http://www.lennoo.com/page/2/index.html">
 <meta property="og:site_name" content="Lennoo">
-<meta property="og:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
-<meta property="og:updated_time" content="2016-09-04T13:51:31.995Z">
+<meta property="og:description" content="Keep it simple">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识PyGTK">
-<meta name="twitter:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
+<meta name="twitter:title" content="Lennoo">
+<meta name="twitter:description" content="Keep it simple">
 
 
 
@@ -117,9 +113,9 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/2008/03/12/hello_pygtk/"/>
+  <link rel="canonical" href="http://www.lennoo.com/page/2/"/>
 
-  <title> 初识PyGTK | Lennoo </title>
+  <title> Lennoo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +145,9 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -216,9 +214,9 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
   
@@ -238,7 +236,10 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
             
             
               
-                初识PyGTK
+                
+                <a class="post-title-link" href="/2008/03/12/hello_pygtk/" itemprop="url">
+                  初识PyGTK
+                </a>
               
             
           </h1>
@@ -285,38 +286,23 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
       
 
       
-        <p>PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.</p>
+        
+          <p>PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.</p>
 <p>PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.</p>
-<a id="more"></a>
-<p>PyGTK是自由软件,所以你能几乎没有任何限制的使用，修改，分发，研究它，它是基于LGPL协议发布的．</p>
-<p>如果你对上面提到的GTK+,也不了解的话，那允许再对它也进行一番介绍．GTK+，用C语言开发的，具有跨平台的GUI库，它是GNOME桌面系统(如果你在用Linux，一定不陌生)和GIMP图象编辑器的开发工具箱．它是世界上许多程序员的选择，对他们来说，国际化的支持是必要的，而且性能也总是他们考虑的因素．与GTK同一领域的还有Qt库，它是由商业公司开发的C++图形库，虽然它也有免费的．</p>
-<h1 id="在windows平台的安装和开发"><a href="#在windows平台的安装和开发" class="headerlink" title="在windows平台的安装和开发"></a>在windows平台的安装和开发</h1><p>安装PyGTK只需执行下列步骤：</p>
-<ul>
-<li><p>安装Python2.4或以上的windows版本<a href="http://www.python.org" target="_blank" rel="external">www.python.org</a></p>
-</li>
-<li><p>从GTK+/Glade的windows版本的GTK+ 2.10开发运行时环境<a href="http://gladewin32.sourceforge.net" target="_blank" rel="external">gladewin32.sourceforge.net</a></p>
-</li>
-<li><p>从PyGTK网站下载安装PyCairo,PyGobject和PyGTK安装包，注意这些需全部安装才能使PyGTK工作[pygtk.org]<br>或许你对这些步骤还感到麻烦，或者对Python不熟悉的话，那也没有关系，直接下载一键安装包all-in-one installer,为你配置好全部运行时环境．</p>
-</li>
-</ul>
-<p>看看开发环境是否配置正确，将下列代码作为Python脚本或者在Python交互控制台下输入．如果正确的话，应该有一个标题为 <strong>“Hello World”</strong> 的windows的空窗口呈现在你面前．</p>
-<p>如果不能运行的话，有可能会出现一个不能成功加载dll的错误提示，这是因为缺少iconv.dll．这时需要只需从网上下载过来，拷贝至windows/system32目录下即可了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import gtk</div><div class="line">window = gtk.Window()</div><div class="line">window.set_title(&quot;Hello World&quot;)</div><div class="line">window.show_all()</div><div class="line"></div><div class="line">gtk.main()</div></pre></td></tr></table></figure>
-
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2008/03/12/hello_pygtk/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
@@ -324,36 +310,128 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2008/01/30/pc_lint/" rel="next" title="PC-Lint简介">
-                <i class="fa fa-chevron-left"></i> PC-Lint简介
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2008/03/16/efs_faq_story/" rel="prev" title="小Q和小A的故事之EFS加密">
-                小Q和小A的故事之EFS加密 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
       
+      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+      
 
-    <div class="post-spread">
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2008/01/30/pc_lint/" itemprop="url">
+                  PC-Lint简介
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2008-01-30T15:18:08+08:00" content="2008-01-30">
+              2008-01-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2008/01/30/pc_lint/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/01/30/pc_lint/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>PC-lint for C/C++是由Gimpel软件公司于1985年开发的代码静态分析工具,它能有效地发现程序语法错误、潜在的错误隐患、不合理的编程习惯等。</p>
+<p>FlexeLint for C/C++是在PC_lint在windows平台获得成功后，同样由Gimpel公司开发的，以源代码形式发布的，在Unix/Linux平台上的静态代码分析工具。</p>
+<p>本文主要介绍PC-lint的安装与配置，因此是在windows平台上进行讨论。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2008/01/30/pc_lint/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
       
     </div>
-  </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -361,14 +439,6 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2008/03/12/hello_pygtk/"
-           data-title="初识PyGTK" data-url="http://www.lennoo.com/2008/03/12/hello_pygtk/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -388,17 +458,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -434,17 +495,6 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在windows平台的安装和开发"><span class="nav-number">1.</span> <span class="nav-text">在windows平台的安装和开发</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -541,10 +591,6 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

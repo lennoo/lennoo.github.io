@@ -86,13 +86,13 @@
 
 <meta name="description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
 PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="初识PyGTK">
-<meta property="og:url" content="http://www.lennoo.com/2008/03/12/hello_pygtk/index.html">
+<meta property="og:url" content="http://www.lennoo.com/posts/hello_pygtk.html">
 <meta property="og:site_name" content="Lennoo">
 <meta property="og:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
 PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
-<meta property="og:updated_time" content="2016-09-04T13:51:31.995Z">
+<meta property="og:updated_time" content="2016-09-08T04:50:38.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识PyGTK">
 <meta name="twitter:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
@@ -117,9 +117,15 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/2008/03/12/hello_pygtk/"/>
+  <link rel="canonical" href="http://www.lennoo.com/posts/hello_pygtk.html"/>
 
-  <title> 初识PyGTK | Lennoo </title>
+  <title>
+  
+
+  
+    初识PyGTK | Lennoo
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +155,7 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -219,73 +225,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 
   <div id="posts" class="posts-expand">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                初识PyGTK
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2008-03-12T19:43:00+08:00" content="2008-03-12">
-              2008-03-12
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2008/03/12/hello_pygtk/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/03/12/hello_pygtk/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.</p>
+      <p>PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.</p>
 <p>PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.</p>
 <a id="more"></a>
 <p>PyGTK是自由软件,所以你能几乎没有任何限制的使用，修改，分发，研究它，它是基于LGPL协议发布的．</p>
@@ -303,56 +244,7 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 <p>如果不能运行的话，有可能会出现一个不能成功加载dll的错误提示，这是因为缺少iconv.dll．这时需要只需从网上下载过来，拷贝至windows/system32目录下即可了.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import gtk</div><div class="line">window = gtk.Window()</div><div class="line">window.set_title(&quot;Hello World&quot;)</div><div class="line">window.show_all()</div><div class="line"></div><div class="line">gtk.main()</div></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2008/01/30/pc_lint/" rel="next" title="PC-Lint简介">
-                <i class="fa fa-chevron-left"></i> PC-Lint简介
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2008/03/16/efs_faq_story/" rel="prev" title="小Q和小A的故事之EFS加密">
-                小Q和小A的故事之EFS加密 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
 
 
@@ -363,8 +255,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2008/03/12/hello_pygtk/"
-           data-title="初识PyGTK" data-url="http://www.lennoo.com/2008/03/12/hello_pygtk/">
+      <div class="ds-thread" data-thread-key="posts/hello_pygtk.html"
+           data-title="初识PyGTK" data-url="http://www.lennoo.com/posts/hello_pygtk.html">
       </div>
     
   </div>
@@ -388,17 +280,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -434,17 +317,6 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在windows平台的安装和开发"><span class="nav-number">1.</span> <span class="nav-text">在windows平台的安装和开发</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -541,10 +413,6 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
