@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。
-注册完Amazon EC2后，需要创建实例可部分参考 Amazon EC2 Ubuntu折腾笔记，有几点需要注意：">
+<meta name="description" content="py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。
+py2exe可以从 http://sourceforge.net/projects/py2exe/ 下载，唯一需要注意的是下载与你">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Amazon EC2注册及应用">
-<meta property="og:url" content="http://www.lennoo.com/2012/05/25/amazon_ec2_register_application/index.html">
+<meta property="og:title" content="简简单单用py2exe打包python脚本">
+<meta property="og:url" content="http://www.lennoo.com/2008/08/11/pack_python_script_using_py2exe/index.html">
 <meta property="og:site_name" content="Lennoo">
-<meta property="og:description" content="Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。
-注册完Amazon EC2后，需要创建实例可部分参考 Amazon EC2 Ubuntu折腾笔记，有几点需要注意：">
-<meta property="og:updated_time" content="2016-09-04T14:04:48.428Z">
+<meta property="og:description" content="py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。
+py2exe可以从 http://sourceforge.net/projects/py2exe/ 下载，唯一需要注意的是下载与你">
+<meta property="og:updated_time" content="2016-09-09T12:50:20.629Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Amazon EC2注册及应用">
-<meta name="twitter:description" content="Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。
-注册完Amazon EC2后，需要创建实例可部分参考 Amazon EC2 Ubuntu折腾笔记，有几点需要注意：">
+<meta name="twitter:title" content="简简单单用py2exe打包python脚本">
+<meta name="twitter:description" content="py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。
+py2exe可以从 http://sourceforge.net/projects/py2exe/ 下载，唯一需要注意的是下载与你">
 
 
 
@@ -117,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/2012/05/25/amazon_ec2_register_application/"/>
+  <link rel="canonical" href="http://www.lennoo.com/2008/08/11/pack_python_script_using_py2exe/"/>
 
-  <title> Amazon EC2注册及应用 | Lennoo </title>
+  <title> 简简单单用py2exe打包python脚本 | Lennoo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -238,7 +238,7 @@
             
             
               
-                Amazon EC2注册及应用
+                简简单单用py2exe打包python脚本
               
             
           </h1>
@@ -250,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-05-25T23:03:08+08:00" content="2012-05-25">
-              2012-05-25
+            <time itemprop="dateCreated" datetime="2008-08-11T19:19:08+08:00" content="2008-08-11">
+              2008-08-11
             </time>
           </span>
 
@@ -261,8 +261,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2012/05/25/amazon_ec2_register_application/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/05/25/amazon_ec2_register_application/" itemprop="commentsCount"></span>
+                <a href="/2008/08/11/pack_python_script_using_py2exe/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/08/11/pack_python_script_using_py2exe/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,17 +285,15 @@
       
 
       
-        <p>Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。</p>
-<p>注册完Amazon EC2后，需要创建实例可部分参考 <a href="http://lanhl.com/2011-amazon-ec2-ubuntu-lamp-wordpress.html" target="_blank" rel="external">Amazon EC2 Ubuntu折腾笔记</a>，有几点需要注意：一是区域测试过日本机房和新加坡机房，对我所处的位置来说，新加坡的ping时间在200ms水平，而日本在300ms水平，新加坡的更适合。二是登陆用的是密钥形式，如用putty需要格式转换，另不同的ami的登陆名不同，ubuntu官方的ami的id为099720109477，用户名为ubuntu，而不是Amazon实例的ec2-user。</p>
-<a id="more"></a>
-<p>创建完EC2实例后，就是一般的虚拟主机使用方法，我现有两个用途：ssh转发和反向代理。ssh转发用的组合是 <em>firefox+foxyproxy+putty</em> ，其中putty在Tunnels页配置隧道，端口可随意，一般选7070，目标为Dynamic。在foxyproxy的代理配置页，需要Socks proxy?勾选上，我在这步开始没有注意，发现端口创建连接都失败，来回排查putty,foxyproxy，后来将装了autoproxy插件工作正常，才兜回来发现这步错误。配置完毕，就可自由地浏览网络了。</p>
-<p>反向代理用的是nginx，在ubuntu 10.04.2下的操作:</p>
-<ol>
-<li>安装nginx，<code>$sudo aptitude install nginx</code></li>
-<li>修改配置文件,<code>$vim /etc/nginx/nginx.conf</code> ，在http段落下添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">listen 80;</div><div class="line">server_name www.lengoo.com lengoo.com;</div><div class="line">location ／ &#123;</div><div class="line">proxy_redirect off;</div><div class="line">proxy_pass http://len-home.appspot.com;</div><div class="line">proxy_set_header  X-Real-IP  $remote_addr;</div><div class="line">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>上面其中 <strong>len-home.appspot.com</strong> 为appengine的应用程序名，对于Amazon Linux AMI(应是CentOS)可参见使用免费的 amazon EC2做google app engine反向代理，但文中提到用转发到 <a href="http://ghs.google.com" target="_blank" rel="external">http://ghs.google.com</a> ，我照其方法会跳转到错误的google首页。</p>
+        <p>py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。</p>
+<p>py2exe可以从 <a href="http://sourceforge.net/projects/py2exe/" target="_blank" rel="external">http://sourceforge.net/projects/py2exe/</a> 下载，唯一需要注意的是下载与你python版本号对应的版本，简单的英文教程 <a href="http://www.py2exe.org/index.cgi/Tutorial" target="_blank" rel="external">http://www.py2exe.org/index.cgi/Tutorial</a> 非常容易入门。</p>
+<p>对早先写的一个代理验证脚本进行exe文件封装作为示例，这测试脚本名为HttpProxyTester.py。</p>
+<p>首先，最好测试运行一下待封装的脚本以确定没有问题，然后在HttpProxyTester.py脚本的同级目录新建一setup.py文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># setup.py</div><div class="line"></div><div class="line">from distutils.core import setup</div><div class="line">import py2exe</div><div class="line"></div><div class="line">setup(console=[&apos;HttpProxyTester.py&apos;])</div></pre></td></tr></table></figure>
+<p>上面的文件首先引入了distutils模块，这模块随python安装分发的，也就是说内置的。接着导入py3exe模块，它其实对distutils做了一些功能扩展。接下来的语句说明是控制台运行。对于windows的GUI模式运行，而不出控制台窗口，则需要setup(windows=[‘xxx’])之类指令，这对于pyWidget程序将很有用。</p>
+<p>在完成安装脚本后，接下来就是在控制台下运行这脚本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;python setup.py py2exe</div></pre></td></tr></table></figure></p>
+<p>这时会打印出许多log信息，并在同级目录下出现两个新的文件夹：build和dist。build文件夹下是py2exe生成的一些临时文件，dist就是需要分发的文件内容，可以这文件夹打包，然后在别的机子上运行了。</p>
+<p>总之，py2exe非常简单实用，三分钟就可以搞定。</p>
 
       
     </div>
@@ -321,13 +319,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2008/08/11/pack_python_script_using_py2exe/" rel="next" title="简简单单用py2exe打包python脚本">
-                <i class="fa fa-chevron-left"></i> 简简单单用py2exe打包python脚本
+              <a href="/2008/07/24/python_class_module_package/" rel="next" title="Python类、模块、包">
+                <i class="fa fa-chevron-left"></i> Python类、模块、包
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2012/05/25/amazon_ec2_register_application/" rel="prev" title="Amazon EC2注册及应用">
+                Amazon EC2注册及应用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -353,8 +355,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2012/05/25/amazon_ec2_register_application/"
-           data-title="Amazon EC2注册及应用" data-url="http://www.lennoo.com/2012/05/25/amazon_ec2_register_application/">
+      <div class="ds-thread" data-thread-key="2008/08/11/pack_python_script_using_py2exe/"
+           data-title="简简单单用py2exe打包python脚本" data-url="http://www.lennoo.com/2008/08/11/pack_python_script_using_py2exe/">
       </div>
     
   </div>

@@ -1,0 +1,471 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="lennoo" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="安装Cygwin在cgywin官方主页下载安装文件setup.exe,这只是一个网络安装包，体积很小。cgywin包含了许多GNU下的应用程序，真正安装时会根据你选择的组件，会自动去网上下载安装的。在国内最好使用镜像服务，这样速度会提高很多，建议去http://www.cygwin.net.cn/ 或 http://www.cygwin.cn/ 下载上述的安装包，并在安装进行到Choose A D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cygwin，以及远程登陆Linux桌面">
+<meta property="og:url" content="http://www.lennoo.com/src/cygwin_remote_connect_linux.html">
+<meta property="og:site_name" content="Lennoo">
+<meta property="og:description" content="安装Cygwin在cgywin官方主页下载安装文件setup.exe,这只是一个网络安装包，体积很小。cgywin包含了许多GNU下的应用程序，真正安装时会根据你选择的组件，会自动去网上下载安装的。在国内最好使用镜像服务，这样速度会提高很多，建议去http://www.cygwin.net.cn/ 或 http://www.cygwin.cn/ 下载上述的安装包，并在安装进行到Choose A D">
+<meta property="og:image" content="http://www.lennoo.com/images/cygwin_remote_connect_linux_1.png">
+<meta property="og:image" content="http://www.lennoo.com/images/cygwin_remote_connect_linux_2.png">
+<meta property="og:image" content="http://www.lennoo.com/images/cygwin_remote_connect_linux_3.png">
+<meta property="og:updated_time" content="2016-09-09T12:51:27.748Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cygwin，以及远程登陆Linux桌面">
+<meta name="twitter:description" content="安装Cygwin在cgywin官方主页下载安装文件setup.exe,这只是一个网络安装包，体积很小。cgywin包含了许多GNU下的应用程序，真正安装时会根据你选择的组件，会自动去网上下载安装的。在国内最好使用镜像服务，这样速度会提高很多，建议去http://www.cygwin.net.cn/ 或 http://www.cygwin.cn/ 下载上述的安装包，并在安装进行到Choose A D">
+<meta name="twitter:image" content="http://www.lennoo.com/images/cygwin_remote_connect_linux_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.lennoo.com/src/cygwin_remote_connect_linux.html"/>
+
+  <title>
+  
+
+  
+    Cygwin，以及远程登陆Linux桌面 | Lennoo
+  
+</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83677513-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lennoo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+      <h1 id="安装Cygwin"><a href="#安装Cygwin" class="headerlink" title="安装Cygwin"></a>安装Cygwin</h1><p>在cgywin官方主页下载安装文件setup.exe,这只是一个网络安装包，体积很小。cgywin包含了许多GNU下的应用程序，真正安装时会根据你选择的组件，会自动去网上下载安装的。在国内最好使用镜像服务，这样速度会提高很多，建议去<a href="http://www.cygwin.net.cn/" target="_blank" rel="external">http://www.cygwin.net.cn/</a> 或 <a href="http://www.cygwin.cn/" target="_blank" rel="external">http://www.cygwin.cn/</a> 下载上述的安装包，并在安装进行到Choose A Download Site这个步骤时，选择合理的镜像。由于中国南北网速的差异，上述两个地址都尝试一下，看看哪个对你而言速度更快一些。</p>
+<a id="more"></a>
+<p>在进行到Select Packages这个步骤时，选择你需要包，建议如下：</p>
+<p><strong>Shells -&gt; rxvt-unicode-x</strong>  强大的X终端，可用它替换windows下的cmd.exe<br><strong>Net-&gt; openssh</strong>  ssh客户端，可作putty的替换<br><strong>Net-&gt; inetutils</strong>  可选，包含一些基本的网络工具，如telnet，否则在cygwin下无法使用windows的telnet<br>cygwin安装时会自动进行包关联，在安装rxvt时，已自动将X server安装上了。</p>
+<h1 id="配置调整"><a href="#配置调整" class="headerlink" title="配置调整"></a>配置调整</h1><p>启动cygwin,实际上是运行cgywin.bat批处理，它又调用了cmd.exe。我们将安装的rxvt作为默认终端，需要修改cygwin.bat。下面是我机子上的配置修改，请对应修改相应的路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">d:</div><div class="line">chdir d:\Cygwin\bin</div><div class="line">rxvt -e bash --login -i</div></pre></td></tr></table></figure>
+<p>调整rxvt观感，需要修改你用户主目录下的.Xdefaults文件，此文件在你选择的安装目录下的home\usrname下，在我的机子上是D:\Cgywin\home\len。若不存在，可在此目录下新建一个，修改内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Rxvt*background:        black</div><div class="line">Rxvt*foreground:        #E2E6C7 </div><div class="line">Rxvt*font:              9x16 </div><div class="line">Rxvt*boldFont:          9x16 </div><div class="line">Rxvt*scrollBar_right:   True</div><div class="line">Rxvt*saveLines:         1024</div><div class="line">Rxvt*geometry:          80x30</div><div class="line">Rxvt*color0:            black</div><div class="line">Rxvt*color1:            red</div><div class="line">Rxvt*color2:            green   </div><div class="line">Rxvt*color3:            yellow</div><div class="line">Rxvt*color4:            blue</div><div class="line">Rxvt*color5:            magenta</div><div class="line">Rxvt*color6:            cyan    </div><div class="line">Rxvt*color7:            white   </div><div class="line">Rxvt*color8:            burlywood1</div><div class="line">Rxvt*color9:            sienna1 </div><div class="line">Rxvt*color10:           PaleVioletRed1  </div><div class="line">Rxvt*color11:           LightSkyBlue    </div><div class="line">Rxvt*color12:           white   </div><div class="line">Rxvt*color13:           white</div><div class="line">Rxvt*color14:           white   </div><div class="line">Rxvt*color15:           white</div></pre></td></tr></table></figure>
+<p>在cygwin下也是可以访问Windows下其他盘符的,如cd /cygdrive/c/windows，就转到了C盘windows目录下。这样对于在linux下工作的人说有点儿别扭，更希望是以cd /mnt/c/windows的mount方式来访问其他盘符。这需要修改注册表的选项，将HKLM\software\Cygnus Solutions\Cgywin\mounts v2下的子项cygdrive prefix更改为/mnt即可。</p>
+<h1 id="远程登陆Linux桌面"><a href="#远程登陆Linux桌面" class="headerlink" title="远程登陆Linux桌面"></a>远程登陆Linux桌面</h1><p>其实这里介绍的不仅仅适用于Linux，而是针对X Window的。X Widonw的介绍不进行赘述，但需要明确其中的服务器端和客户端的区别，在X Window的概念中服务器端是指你进行显示，输入输出的机器，也是接下来示例中的本机len-computer,IP为10.3.164.70，而客户端指的是进行远程登陆的机器auto-desktop,IP为10.3.164.74。</p>
+<p>在局域网内最简单的方法是使用XDMCP连接，这时远程的机器启用xdmcp。那台机器运行着ubuntu-8.04，用gdm进行窗口管理，编辑<code>/etc/gdm/gdm.conf-custom</code>如下，其他版本的linux需找到对应的窗口管理的配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[security]</div><div class="line">DisallowTCP=false</div><div class="line"></div><div class="line">[xdmcp]</div><div class="line">Enale=true</div></pre></td></tr></table></figure>
+<p>修改完后，在远程机器上重启服务，<code>$sudo /etc/init.d/gdm restart</code>。接下来本机启动cgywin，转到X目录下，运行Xwin.exe，使用 -query指定远程的linux机器的ip即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Len@len-computer /usr/X11R6/bin</div><div class="line">$ cd /usr/X11R6/bin</div><div class="line"></div><div class="line">Len@len-computer /usr/X11R6/bin</div><div class="line">$ Xwin -query 10.3.164.74</div></pre></td></tr></table></figure></p>
+<p>这里会出现如下面图示的窗口，提示输入用户名和密码。另再附一张在登陆成功后，我在本地执行远程操作的截图。</p>
+<p><img src="/images/cygwin_remote_connect_linux_1.png" alt=""><br><img src="/images/cygwin_remote_connect_linux_2.png" alt=""></p>
+<p>如果你需要连接的远程机器比较固定，可以修改本地机器d:\cgygin\usrX11R6\bin\startxdmcp.bat中的REMOTE_HOST值为你需要连接机器的IP，这个批处理设置了一些有用的环境变量值。或许你需要创建一个桌面的快键方式，这样每次点击，就直接连接到远程机器了。</p>
+<h1 id="不引入桌面环境"><a href="#不引入桌面环境" class="headerlink" title="不引入桌面环境"></a>不引入桌面环境</h1><p>可能有时候只需要将某个需要X服务的远程应用程序引入到本地桌面显示，而不需要启动像上面的GNOME或者KDE等庞大的桌面环境。这样做比较适合喜欢终端操作的人，我就常常终端敲命令，然后将gvim,openoffice这些从远程导入到本地操作。</p>
+<p>找到d:\cgywin\usr\X11R6\bin\startwin.bat，将%RUN% xterm -e /usr/bin/bash -l注释掉，因为我们己经有了rxvt,不需要一个新的xterm终端了，执行该批处理文件，就会在本机运行X server。启动cgywin，用ssh登陆到远程机器上，执行如下命令，导出DISPLAY环境变量和运行你感兴趣的程序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">auto@Auto-desktop:~$ export DISPLAY=10.3.164.70:0.0</div><div class="line">auto@Auto-desktop:~$ gvim&amp;</div><div class="line">[1] 22652</div><div class="line">auto@Auto-desktop:~$ oowriter&amp;</div></pre></td></tr></table></figure></p>
+<p>其中环境变量DISPLAY中的:0.0部分表示X server的display和screen。display指运行着X server实例。如果使用TCP/IP连接，表示的是端口6000+display号做为连接。screen代表X server上的不同输出设备。我在例子中执行gvim和openoffice.org-writer，运行的效果可看下面的截图。在ubuntu上运行着的gvim和openoffice都在我本机10.3.164.70上显示了，并且可操作。</p>
+<p><img src="/images/cygwin_remote_connect_linux_3.png" alt=""></p>
+<h1 id="有用的链接"><a href="#有用的链接" class="headerlink" title="有用的链接"></a>有用的链接</h1><p><a href="http://x.cygwin.com/docs/faq/cygwin-x-faq.html" target="_blank" rel="external">Cgywin/X FAQ</a> 在碰到一些操作问题时，不妨先看看这份FAQ</p>
+<p><a href="http://blog.csdn.net/easwy/article/details/1807725" target="_blank" rel="external">使用cygwin X server实现Linux远程桌面</a>easwy介绍了KDE环境下的配置，部分受此启发</p>
+<p><a href="http://blog.csdn.net/easwy/article/details/1812242" target="_blank" rel="external">使用rxvt做为cygwin终端</a> 碰到rxvt中文显示问题时，或许有帮助</p>
+
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="src/cygwin_remote_connect_linux.html"
+           data-title="Cygwin，以及远程登陆Linux桌面" data-url="http://www.lennoo.com/src/cygwin_remote_connect_linux.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Len Kong" />
+          <p class="site-author-name" itemprop="name">Len Kong</p>
+          <p class="site-description motion-element" itemprop="description">Keep it simple</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Len Kong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lennoo"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

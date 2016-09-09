@@ -84,25 +84,22 @@
 
 
 
-<meta name="description" content="涉及到软件：Xmanager 1.3.9 / Windows xp, ubuntu hardy
-
-在ubuntu机器上配置好gdm,修改/etc/gdm/gdm.conf-custom,对照添加如下内容：‘’’[security]DisallowTCP=false[xdmcp]Enable=true‘’’
-性能调优。这步非常关键，不然使用Xmanager登陆速度非常慢，且会报错，主要原因是gnom">
+<meta name="description" content="PC-lint for C/C++是由Gimpel软件公司于1985年开发的代码静态分析工具,它能有效地发现程序语法错误、潜在的错误隐患、不合理的编程习惯等。
+FlexeLint for C/C++是在PC_lint在windows平台获得成功后，同样由Gimpel公司开发的，以源代码形式发布的，在Unix/Linux平台上的静态代码分析工具。
+本文主要介绍PC-lint的安装与配置，因此是在wi">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Xmanager远程连接ubuntu">
-<meta property="og:url" content="http://www.lennoo.com/posts/xmanage_remote_connect_ubuntu.html">
+<meta property="og:title" content="PC-Lint简介">
+<meta property="og:url" content="http://www.lennoo.com/src/pc_lint.html">
 <meta property="og:site_name" content="Lennoo">
-<meta property="og:description" content="涉及到软件：Xmanager 1.3.9 / Windows xp, ubuntu hardy
-
-在ubuntu机器上配置好gdm,修改/etc/gdm/gdm.conf-custom,对照添加如下内容：‘’’[security]DisallowTCP=false[xdmcp]Enable=true‘’’
-性能调优。这步非常关键，不然使用Xmanager登陆速度非常慢，且会报错，主要原因是gnom">
-<meta property="og:updated_time" content="2016-09-08T04:50:38.091Z">
+<meta property="og:description" content="PC-lint for C/C++是由Gimpel软件公司于1985年开发的代码静态分析工具,它能有效地发现程序语法错误、潜在的错误隐患、不合理的编程习惯等。
+FlexeLint for C/C++是在PC_lint在windows平台获得成功后，同样由Gimpel公司开发的，以源代码形式发布的，在Unix/Linux平台上的静态代码分析工具。
+本文主要介绍PC-lint的安装与配置，因此是在wi">
+<meta property="og:updated_time" content="2016-09-09T12:51:27.748Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xmanager远程连接ubuntu">
-<meta name="twitter:description" content="涉及到软件：Xmanager 1.3.9 / Windows xp, ubuntu hardy
-
-在ubuntu机器上配置好gdm,修改/etc/gdm/gdm.conf-custom,对照添加如下内容：‘’’[security]DisallowTCP=false[xdmcp]Enable=true‘’’
-性能调优。这步非常关键，不然使用Xmanager登陆速度非常慢，且会报错，主要原因是gnom">
+<meta name="twitter:title" content="PC-Lint简介">
+<meta name="twitter:description" content="PC-lint for C/C++是由Gimpel软件公司于1985年开发的代码静态分析工具,它能有效地发现程序语法错误、潜在的错误隐患、不合理的编程习惯等。
+FlexeLint for C/C++是在PC_lint在windows平台获得成功后，同样由Gimpel公司开发的，以源代码形式发布的，在Unix/Linux平台上的静态代码分析工具。
+本文主要介绍PC-lint的安装与配置，因此是在wi">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/posts/xmanage_remote_connect_ubuntu.html"/>
+  <link rel="canonical" href="http://www.lennoo.com/src/pc_lint.html"/>
 
   <title>
   
 
   
-    Xmanager远程连接ubuntu | Lennoo
+    PC-Lint简介 | Lennoo
   
 </title>
 </head>
@@ -232,12 +229,15 @@
   <div id="posts" class="posts-expand">
     
     
-      <p>涉及到软件：Xmanager 1.3.9 / Windows xp, ubuntu hardy</p>
-<ol>
-<li>在ubuntu机器上配置好gdm,修改/etc/gdm/gdm.conf-custom,对照添加如下内容：<br>‘’’<br>[security]<br>DisallowTCP=false<br>[xdmcp]<br>Enable=true<br>‘’’</li>
-<li>性能调优。这步非常关键，不然使用Xmanager登陆速度非常慢，且会报错，主要原因是gnome使用Esound进行声音数据的传送，需要使用TCP 16001端口。所以我建设在ubuntu关掉混音选项。<br>系统-首选项-音效-音效,将“允许软件混音”不要勾选上，<br>系统-首选项-字体-字体渲染,选择”单色”,在“细节”的“字体渲染细节”中的平滑和微调选项，都选择”无”。</li>
-</ol>
-<p>有用的参考：(<a href="http://www.netsarang.com/products/xmg_faq.html" target="_blank" rel="external">http://www.netsarang.com/products/xmg_faq.html</a>)</p>
+      <p>PC-lint for C/C++是由Gimpel软件公司于1985年开发的代码静态分析工具,它能有效地发现程序语法错误、潜在的错误隐患、不合理的编程习惯等。</p>
+<p>FlexeLint for C/C++是在PC_lint在windows平台获得成功后，同样由Gimpel公司开发的，以源代码形式发布的，在Unix/Linux平台上的静态代码分析工具。</p>
+<p>本文主要介绍PC-lint的安装与配置，因此是在windows平台上进行讨论。</p>
+<a id="more"></a>
+<p>PC-lint支持几乎所有流行的编译器和IDE环境，可能因为其发展历史和面对专业程序员群体的原因，它是以命令行加配置文件的形式进行使用，所以其使用习惯跟现在常见的windows软件不同。</p>
+<p>现以PC-lint与VS2005进行集成来说明：</p>
+<p>将PC-lint释放到某一目录下,如: <code>D:\Program Files\pclint</code> .将新建一std.lnt文件在主目录中，并将添加上以下的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">au-sm.lnt</div><div class="line">co-msc80.lnt</div><div class="line">lib-mfc.lnt</div><div class="line">lib-stl.lnt</div><div class="line">lib-w32.lnt</div><div class="line">lib-wnt.lnt</div><div class="line">lib-atl.lnt</div><div class="line">options.lnt  -si4 -sp4</div><div class="line"></div><div class="line">-i &quot;C:\Program Files\Microsoft Visual Studio 8\VC\include&quot;</div><div class="line">-i &quot;C:\Program Files\Microsoft Visual Studio 8\VC\atlmfc\include&quot;</div><div class="line">-i &quot;C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include&quot;</div><div class="line">-i &quot;C:\Program Files\Microsoft Visual Studio 8\SDK\v2.0\include&quot;</div></pre></td></tr></table></figure>
+<p>注意：-i后面为相应的vc头文件目录路径,而一系列xxx.lnt是语法配置规则，决定了按什么规则进行检查，以后可以根据需要进行增减. 写在配置文件中相应的的xxx.lnt从lnt子目录中，拷贝到主目录中．（这一步很重要) 在vs2005中的工具-&gt;外部工具中，点击＂添加”,新建一个外部工具.标题可以任意，可取(pc_lint)；命令为：<code>D:\Program Files\pclint\LINT-NT.EXE；参数为:-i&quot;D:\Program Files\pclint&quot; std.lnt &quot;$(ItemFileName)$(ItemExt)&quot;</code> ;初始目录为：$(ItemDir)，并将下面的＂使用输出窗口＂勾选上. 接下来，就可以写一段程序，在工具菜单中选择pc_lint 来进行检查了．如果你编写的程序有不符合定义的规范，则会在输出窗口中出现相关的信息.</p>
 
     
   </div>
@@ -250,8 +250,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="posts/xmanage_remote_connect_ubuntu.html"
-           data-title="Xmanager远程连接ubuntu" data-url="http://www.lennoo.com/posts/xmanage_remote_connect_ubuntu.html">
+      <div class="ds-thread" data-thread-key="src/pc_lint.html"
+           data-title="PC-Lint简介" data-url="http://www.lennoo.com/src/pc_lint.html">
       </div>
     
   </div>
@@ -287,7 +287,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
