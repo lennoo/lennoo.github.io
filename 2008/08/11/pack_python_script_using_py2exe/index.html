@@ -92,7 +92,7 @@ py2exe可以从 http://sourceforge.net/projects/py2exe/ 下载，唯一需要注
 <meta property="og:site_name" content="Lennoo">
 <meta property="og:description" content="py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。
 py2exe可以从 http://sourceforge.net/projects/py2exe/ 下载，唯一需要注意的是下载与你">
-<meta property="og:updated_time" content="2016-09-09T12:50:20.629Z">
+<meta property="og:updated_time" content="2016-09-09T12:56:45.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简简单单用py2exe打包python脚本">
 <meta name="twitter:description" content="py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。
@@ -286,7 +286,7 @@ py2exe可以从 http://sourceforge.net/projects/py2exe/ 下载，唯一需要注
 
       
         <p>py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。</p>
-<p>py2exe可以从 <a href="http://sourceforge.net/projects/py2exe/" target="_blank" rel="external">http://sourceforge.net/projects/py2exe/</a> 下载，唯一需要注意的是下载与你python版本号对应的版本，简单的英文教程 <a href="http://www.py2exe.org/index.cgi/Tutorial" target="_blank" rel="external">http://www.py2exe.org/index.cgi/Tutorial</a> 非常容易入门。</p>
+<p>py2exe可以从 <a href="http://sourceforge.net/projects/py2exe/" target="_blank" rel="external">http://sourceforge.net/projects/py2exe/</a> 下载，唯一需要注意的是下载与你python版本号对应的版本，简单的英文教程 <a href="http://www.py2exe.org/index.cgi/Tutorial" target="_blank" rel="external">http://www.py2exe.org/index.cgi/Tutorial</a> 非常容易入门。<br><a id="more"></a></p>
 <p>对早先写的一个代理验证脚本进行exe文件封装作为示例，这测试脚本名为HttpProxyTester.py。</p>
 <p>首先，最好测试运行一下待封装的脚本以确定没有问题，然后在HttpProxyTester.py脚本的同级目录新建一setup.py文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># setup.py</div><div class="line"></div><div class="line">from distutils.core import setup</div><div class="line">import py2exe</div><div class="line"></div><div class="line">setup(console=[&apos;HttpProxyTester.py&apos;])</div></pre></td></tr></table></figure>

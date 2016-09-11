@@ -391,18 +391,13 @@
 
       
         
-          
-            <p>py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。</p>
-<p>py2exe可以从 <a href="http://sourceforge.net/projects/py2exe/" target="_blank" rel="external">http://sourceforge.net/projects/py2exe/</a> 下载，唯一需要注意的是下载与你python版本号对应的版本，简单的英文教程 <a href="http://www.py2exe.org/index.cgi/Tutorial" target="_blank" rel="external">http://www.py2exe.org/index.cgi/Tutorial</a> 非常容易入门。</p>
-<p>对早先写的一个代理验证脚本进行exe文件封装作为示例，这测试脚本名为HttpProxyTester.py。</p>
-<p>首先，最好测试运行一下待封装的脚本以确定没有问题，然后在HttpProxyTester.py脚本的同级目录新建一setup.py文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># setup.py</div><div class="line"></div><div class="line">from distutils.core import setup</div><div class="line">import py2exe</div><div class="line"></div><div class="line">setup(console=[&apos;HttpProxyTester.py&apos;])</div></pre></td></tr></table></figure>
-<p>上面的文件首先引入了distutils模块，这模块随python安装分发的，也就是说内置的。接着导入py3exe模块，它其实对distutils做了一些功能扩展。接下来的语句说明是控制台运行。对于windows的GUI模式运行，而不出控制台窗口，则需要setup(windows=[‘xxx’])之类指令，这对于pyWidget程序将很有用。</p>
-<p>在完成安装脚本后，接下来就是在控制台下运行这脚本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;python setup.py py2exe</div></pre></td></tr></table></figure></p>
-<p>这时会打印出许多log信息，并在同级目录下出现两个新的文件夹：build和dist。build文件夹下是py2exe生成的一些临时文件，dist就是需要分发的文件内容，可以这文件夹打包，然后在别的机子上运行了。</p>
-<p>总之，py2exe非常简单实用，三分钟就可以搞定。</p>
-
-          
+          <p>py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。</p>
+<p>py2exe可以从 <a href="http://sourceforge.net/projects/py2exe/">http://sourceforge.net/projects/py2exe/</a> 下载，唯一需要注意的是下载与你python版本号对应的版本，简单的英文教程 <a href="http://www.py2exe.org/index.cgi/Tutorial">http://www.py2exe.org/index.cgi/Tutorial</a> 非常容易入门。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2008/08/11/pack_python_script_using_py2exe/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
