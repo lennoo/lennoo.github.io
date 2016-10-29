@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="Subversion的属性是非常好用的功能,它将一些工作自动化，实现为受版本控制的源文件添加元信息的作用。属性是外部不可见的，可以简单认为是附加上在文件上的信息，和文件大小之类的信息是一样的，只不过他是通过subversion来管理的。属性的名称和值可以是你希望的任何值，限制就是名称必须是可读的文本，并且最好的一点是这些属性也是版本化的，就像你的文本文件内容，你可以像提交文本修改一样修改、提交和恢">
+<meta name="description" content="起因在安装lxml时出现错误，一般使用pip可以解决，由于lxml是cpython的封装，可以视作二进制文件做个wrapper,在install时需要编辑器等支持。1&amp;gt;pip install lxml
+网上搜索了一遍，可以从 (http://www.lfd.uci.edu/~gohlke/pythonlibs/) 使用非官方的Windows二进制的python扩展包，下载过来是wheel格式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="好用的Subversion属性功能">
-<meta property="og:url" content="http://www.lennoo.com/2008/06/30/useful_subversion_property/index.html">
+<meta property="og:title" content="Python包管理安装">
+<meta property="og:url" content="http://www.lennoo.com/2016/10/29/python_package_manage/index.html">
 <meta property="og:site_name" content="Lennoo">
-<meta property="og:description" content="Subversion的属性是非常好用的功能,它将一些工作自动化，实现为受版本控制的源文件添加元信息的作用。属性是外部不可见的，可以简单认为是附加上在文件上的信息，和文件大小之类的信息是一样的，只不过他是通过subversion来管理的。属性的名称和值可以是你希望的任何值，限制就是名称必须是可读的文本，并且最好的一点是这些属性也是版本化的，就像你的文本文件内容，你可以像提交文本修改一样修改、提交和恢">
-<meta property="og:updated_time" content="2016-09-08T04:49:17.237Z">
+<meta property="og:description" content="起因在安装lxml时出现错误，一般使用pip可以解决，由于lxml是cpython的封装，可以视作二进制文件做个wrapper,在install时需要编辑器等支持。1&amp;gt;pip install lxml
+网上搜索了一遍，可以从 (http://www.lfd.uci.edu/~gohlke/pythonlibs/) 使用非官方的Windows二进制的python扩展包，下载过来是wheel格式">
+<meta property="og:updated_time" content="2016-10-29T12:18:21.037Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="好用的Subversion属性功能">
-<meta name="twitter:description" content="Subversion的属性是非常好用的功能,它将一些工作自动化，实现为受版本控制的源文件添加元信息的作用。属性是外部不可见的，可以简单认为是附加上在文件上的信息，和文件大小之类的信息是一样的，只不过他是通过subversion来管理的。属性的名称和值可以是你希望的任何值，限制就是名称必须是可读的文本，并且最好的一点是这些属性也是版本化的，就像你的文本文件内容，你可以像提交文本修改一样修改、提交和恢">
+<meta name="twitter:title" content="Python包管理安装">
+<meta name="twitter:description" content="起因在安装lxml时出现错误，一般使用pip可以解决，由于lxml是cpython的封装，可以视作二进制文件做个wrapper,在install时需要编辑器等支持。1&amp;gt;pip install lxml
+网上搜索了一遍，可以从 (http://www.lfd.uci.edu/~gohlke/pythonlibs/) 使用非官方的Windows二进制的python扩展包，下载过来是wheel格式">
 
 
 
@@ -114,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/2008/06/30/useful_subversion_property/"/>
+  <link rel="canonical" href="http://www.lennoo.com/2016/10/29/python_package_manage/"/>
 
-  <title> 好用的Subversion属性功能 | Lennoo </title>
+  <title> Python包管理安装 | Lennoo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -235,7 +238,7 @@
             
             
               
-                好用的Subversion属性功能
+                Python包管理安装
               
             
           </h1>
@@ -247,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2008-06-30T12:06:08+08:00" content="2008-06-30">
-              2008-06-30
+            <time itemprop="dateCreated" datetime="2016-10-29T19:48:00+08:00" content="2016-10-29">
+              2016-10-29
             </time>
           </span>
 
@@ -258,8 +261,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2008/06/30/useful_subversion_property/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/06/30/useful_subversion_property/" itemprop="commentsCount"></span>
+                <a href="/2016/10/29/python_package_manage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/python_package_manage/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -282,21 +285,12 @@
       
 
       
-        <p>Subversion的属性是非常好用的功能,它将一些工作自动化，实现为受版本控制的源文件添加元信息的作用。属性是外部不可见的，可以简单认为是附加上在文件上的信息，和文件大小之类的信息是一样的，只不过他是通过subversion来管理的。属性的名称和值可以是你希望的任何值，限制就是名称必须是可读的文本，并且最好的一点是这些属性也是版本化的，就像你的文本文件内容，你可以像提交文本修改一样修改、提交和恢复属性修改，当你更新时也会接收到别人的属性修改—你不必为适应属性改变你的工作流程。</p>
+        <p>起因在安装lxml时出现错误，一般使用pip可以解决，由于lxml是cpython的封装，可以视作二进制文件做个wrapper,在install时需要编辑器等支持。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;pip install lxml</div></pre></td></tr></table></figure></p>
+<p>网上搜索了一遍，可以从 (<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a>) 使用非官方的Windows二进制的python扩展包，下载过来是wheel格式，也可以使用pip 安装，在安装文件的路径下运行。最先出现的是 <code>.whl is not a supported wheel on this platform</code> 提示。在网站上.whl都有好几个版本，cp27对应于python2.7, cp35对应于python3.5一般容易理解。win32指对应的python的32位版本，而与windows是否32位或64位无关。网上相关出现的错误都在于上述版本问题。我在避开这些坑后，尝试两种版本都仍出现平台不支持的错误安装不成功。</p>
 <a id="more"></a>
-<p>Subversion保留了一组名称以svn:开头的属性，来预定义一些有用的功能。比如你常会看到一些人的源代码底部有像下面之类标识的文字：</p>
-<p><code>$Id: main_window.py 68 2008-06-30 02:05:05Z Len $</code></p>
-<p>这就使用了Subversion 中的 svn:keywords的自动属性，它让将发生在源代码中的一些属性的变化自动地更新到源代码中。这行字的意思是表示，main_windows.py 这个源代码文件最后被用户 len 更新于 2008-6-30 02:05:05Z，修订版本号为 68。要实现这样的自动更新，你只要对需要这样属性的文件上使用下面这行指令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; svn propset svn:keywords &quot;Id&quot; main_window.py</div></pre></td></tr></table></figure>
-<p>或者使用TortoiseSVN中的Properties的操作按钮，方便地增加新的属性。接着需要在源代码文件中需要 Subversion 进行自动更新的地方插入 $Id$ 这样的 Keyword，那么在你下次进行提交更新时，该$Id$ 就会被 Subversion 自动替换为$Id: main_window.py 68 2008-06-30 02:05:05Z Len $ 这样的格式。<br>Subversion 中可以使用的Keyword 包括下面这些：</p>
-<ul>
-<li>Id<br>上面介绍过的综合的格式</li>
-<li>LastChangedDate<br>最后被修改的时间，缩写为 Date。</li>
-<li>LastChangedBy<br>最后修改该源代码文件的用户名，缩写为 Author。</li>
-<li>LastChangedRevision </li>
-</ul>
-<p>最后修订的版本号，缩写为 Revision。<br>如果想每次向Subversion服务器提交文件修改时，都要设置文件的属性，则需要进行Subversion配置的修改。配置文件在你用户的主目录下，在Windows下应类似于C:\Documents and Settings\Len\Application Data\Subversion\config文件，Len是Windows用户名，注意Application Data是隐藏文件夹，需要显示全部文件才能看到。接着如下相应的修改，对你想要处理的文件做配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">enable-auto-props = yes   </div><div class="line">[auto-props]   </div><div class="line">*.c = svn:keywords=Id   </div><div class="line">*.py = svn:keywords=Id</div></pre></td></tr></table></figure></p>
-<p>对于开源项目，常见其源文件头部有着版权声明的文本，这些操作大多也是通Subversion的属性功能来完成的，有关更详细的介绍和操作指南，可参见Subversion中文手册中的属性章节。</p>
+<p>在<a href="http://stackoverflow.com/" target="_blank" rel="external">stackoverflow</a>上发现pip版本过旧也可能导致错误，升级pip版本安装lxml.whl解决：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; python -m pip install --upgrade pip</div><div class="line">Downloading/unpacking pip from https://pypi.python.org/packages/9c/32/004ce0852e0a127f07f358b715</div><div class="line">015763273799bd798956fa930814b60f39/pip-8.1.2-py2.py3-none-any.whl#md5=0570520434c5b600d89ec95393</div><div class="line">b2650b</div><div class="line">Installing collected packages: pip</div><div class="line">  Found existing installation: pip 1.5.6</div><div class="line">    Uninstalling pip:</div><div class="line">      Successfully uninstalled pip</div><div class="line">Successfully installed pip</div></pre></td></tr></table></figure></p>
+<p>Python包管理现在事实工业标准是pip无疑，但一些简单老旧的模块会采用随包带setup.py。setup.py是利用<a href="https://docs.python.org/2/library/distutils.html" target="_blank" rel="external">distutil</a>,distutil是在2000年发布用于python模块的安装和发布。</p>
+<p>easy_install在一些文章指导也有出现，它是<a href="https://docs.python.org/2/distutils/setupscript.html" target="_blank" rel="external">setuptool</a>中的安装工具，在2004年发布用于模块的下载、构建、安装和管理。伴随而来的还有eggs文件格式，相当于将支撑文件一起打包发布。</p>
 
       
     </div>
@@ -322,17 +316,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2008/06/15/boost_program_options/" rel="next" title="Boost.Program_options简述">
-                <i class="fa fa-chevron-left"></i> Boost.Program_options简述
+              <a href="/2012/05/25/amazon_ec2_register_application/" rel="next" title="Amazon EC2注册及应用">
+                <i class="fa fa-chevron-left"></i> Amazon EC2注册及应用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2008/07/02/simple_qq_proxy_test/" rel="prev" title="简单的QQ代理验证">
-                简单的QQ代理验证 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -358,8 +348,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2008/06/30/useful_subversion_property/"
-           data-title="好用的Subversion属性功能" data-url="http://www.lennoo.com/2008/06/30/useful_subversion_property/">
+      <div class="ds-thread" data-thread-key="2016/10/29/python_package_manage/"
+           data-title="Python包管理安装" data-url="http://www.lennoo.com/2016/10/29/python_package_manage/">
       </div>
     
   </div>
