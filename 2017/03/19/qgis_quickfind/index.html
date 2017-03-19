@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
+<meta name="description" content="QGIS是开源的GIS软件，得益于它的插件体系，可以增加许多额外功能。最需要的查找表的某个字段，将在地图上进行定位，QGIS自身提供了属性表按表达式来查找定位，但这一方法过于繁琐。或者使用MMQGIS的Search功能，它提供选择表、字段、比较符和值的输入框，虽然通过快捷键绑定呼出对话框，但是在属性表和字段较多的时候仍显得复杂。
+通常我们经常查找的是某几个表的某几个字段，QuickFind插件通过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识PyGTK">
-<meta property="og:url" content="http://www.lennoo.com/2008/03/12/hello_pygtk/index.html">
+<meta property="og:title" content="QGIS的quickfind插件的模糊查找">
+<meta property="og:url" content="http://www.lennoo.com/2017/03/19/qgis_quickfind/index.html">
 <meta property="og:site_name" content="Lennoo">
-<meta property="og:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
-<meta property="og:updated_time" content="2016-09-04T13:51:31.995Z">
+<meta property="og:description" content="QGIS是开源的GIS软件，得益于它的插件体系，可以增加许多额外功能。最需要的查找表的某个字段，将在地图上进行定位，QGIS自身提供了属性表按表达式来查找定位，但这一方法过于繁琐。或者使用MMQGIS的Search功能，它提供选择表、字段、比较符和值的输入框，虽然通过快捷键绑定呼出对话框，但是在属性表和字段较多的时候仍显得复杂。
+通常我们经常查找的是某几个表的某几个字段，QuickFind插件通过">
+<meta property="og:updated_time" content="2017-03-19T06:23:10.680Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识PyGTK">
-<meta name="twitter:description" content="PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
-PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.">
+<meta name="twitter:title" content="QGIS的quickfind插件的模糊查找">
+<meta name="twitter:description" content="QGIS是开源的GIS软件，得益于它的插件体系，可以增加许多额外功能。最需要的查找表的某个字段，将在地图上进行定位，QGIS自身提供了属性表按表达式来查找定位，但这一方法过于繁琐。或者使用MMQGIS的Search功能，它提供选择表、字段、比较符和值的输入框，虽然通过快捷键绑定呼出对话框，但是在属性表和字段较多的时候仍显得复杂。
+通常我们经常查找的是某几个表的某几个字段，QuickFind插件通过">
 
 
 
@@ -117,9 +117,9 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
 
 
 
-  <link rel="canonical" href="http://www.lennoo.com/2008/03/12/hello_pygtk/"/>
+  <link rel="canonical" href="http://www.lennoo.com/2017/03/19/qgis_quickfind/"/>
 
-  <title> 初识PyGTK | Lennoo </title>
+  <title> QGIS的quickfind插件的模糊查找 | Lennoo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -238,7 +238,7 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
             
             
               
-                初识PyGTK
+                QGIS的quickfind插件的模糊查找
               
             
           </h1>
@@ -250,8 +250,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2008-03-12T19:43:00+08:00" content="2008-03-12">
-              2008-03-12
+            <time itemprop="dateCreated" datetime="2017-03-19T14:05:03+08:00" content="2017-03-19">
+              2017-03-19
             </time>
           </span>
 
@@ -261,8 +261,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2008/03/12/hello_pygtk/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2008/03/12/hello_pygtk/" itemprop="commentsCount"></span>
+                <a href="/2017/03/19/qgis_quickfind/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/19/qgis_quickfind/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,23 +285,11 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
       
 
       
-        <p>PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.</p>
-<p>PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.</p>
-<a id="more"></a>
-<p>PyGTK是自由软件,所以你能几乎没有任何限制的使用，修改，分发，研究它，它是基于LGPL协议发布的．</p>
-<p>如果你对上面提到的GTK+,也不了解的话，那允许再对它也进行一番介绍．GTK+，用C语言开发的，具有跨平台的GUI库，它是GNOME桌面系统(如果你在用Linux，一定不陌生)和GIMP图象编辑器的开发工具箱．它是世界上许多程序员的选择，对他们来说，国际化的支持是必要的，而且性能也总是他们考虑的因素．与GTK同一领域的还有Qt库，它是由商业公司开发的C++图形库，虽然它也有免费的．</p>
-<h1 id="在windows平台的安装和开发"><a href="#在windows平台的安装和开发" class="headerlink" title="在windows平台的安装和开发"></a>在windows平台的安装和开发</h1><p>安装PyGTK只需执行下列步骤：</p>
-<ul>
-<li><p>安装Python2.4或以上的windows版本<a href="http://www.python.org" target="_blank" rel="external">www.python.org</a></p>
-</li>
-<li><p>从GTK+/Glade的windows版本的GTK+ 2.10开发运行时环境<a href="http://gladewin32.sourceforge.net" target="_blank" rel="external">gladewin32.sourceforge.net</a></p>
-</li>
-<li><p>从PyGTK网站下载安装PyCairo,PyGobject和PyGTK安装包，注意这些需全部安装才能使PyGTK工作[pygtk.org]<br>或许你对这些步骤还感到麻烦，或者对Python不熟悉的话，那也没有关系，直接下载一键安装包all-in-one installer,为你配置好全部运行时环境．</p>
-</li>
-</ul>
-<p>看看开发环境是否配置正确，将下列代码作为Python脚本或者在Python交互控制台下输入．如果正确的话，应该有一个标题为 <strong>“Hello World”</strong> 的windows的空窗口呈现在你面前．</p>
-<p>如果不能运行的话，有可能会出现一个不能成功加载dll的错误提示，这是因为缺少iconv.dll．这时需要只需从网上下载过来，拷贝至windows/system32目录下即可了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import gtk</div><div class="line">window = gtk.Window()</div><div class="line">window.set_title(&quot;Hello World&quot;)</div><div class="line">window.show_all()</div><div class="line"></div><div class="line">gtk.main()</div></pre></td></tr></table></figure>
+        <p>QGIS是开源的GIS软件，得益于它的插件体系，可以增加许多额外功能。最需要的查找表的某个字段，将在地图上进行定位，QGIS自身提供了属性表按表达式来查找定位，但这一方法过于繁琐。或者使用MMQGIS的Search功能，它提供选择表、字段、比较符和值的输入框，虽然通过快捷键绑定呼出对话框，但是在属性表和字段较多的时候仍显得复杂。</p>
+<p>通常我们经常查找的是某几个表的某几个字段，QuickFind插件通过预先的设置提供了一条简洁的对话框供输入。QuickFind底层是使用sqlite的FTS3全文索引功能，但在中文环境使用时会发现他只能匹配开头模式。如下两行，使用“浙江”关键字查找将只找到第2行，而第1行找不到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sample_col:</div><div class="line">中国浙江温州</div><div class="line">浙江温州</div></pre></td></tr></table></figure>
+<p>通过修改quickfind的源码，可以暂时进行解决。找到quickfind目录下的project_find.py文件，修改两行代码，将MATCH简单改为LIKE模式。这一修改会影响大数据量（估许要上万行记录）的查询速度，所以暂没有请求合并至源代码，但对于小数据量而言，平时会方便很多。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">186 </div><div class="line">to_find[i] = &apos;%s*&apos; % word</div><div class="line">--&gt;</div><div class="line">to_find[i] = &apos;%%%s%%&apos; % word #</div><div class="line"></div><div class="line">189</div><div class="line">sql = &quot;SELECT search_id,content,x,y,wkb_geom FROM quickfinder_data WHERE content MATCH ?&quot;</div><div class="line">--&gt;</div><div class="line">sql = &quot;SELECT search_id,content,x,y,wkb_geom FROM quickfinder_data WHERE content LIKE ?&quot;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -327,17 +315,13 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2008/01/30/pc_lint/" rel="next" title="PC-Lint简介">
-                <i class="fa fa-chevron-left"></i> PC-Lint简介
+              <a href="/2017/03/11/cmder_ssh_encoding/" rel="next" title="Cmder下ssh客户端中文乱码">
+                <i class="fa fa-chevron-left"></i> Cmder下ssh客户端中文乱码
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2008/03/16/efs_faq_story/" rel="prev" title="小Q和小A的故事之EFS加密">
-                小Q和小A的故事之EFS加密 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -363,8 +347,8 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2008/03/12/hello_pygtk/"
-           data-title="初识PyGTK" data-url="http://www.lennoo.com/2008/03/12/hello_pygtk/">
+      <div class="ds-thread" data-thread-key="2017/03/19/qgis_quickfind/"
+           data-title="QGIS的quickfind插件的模糊查找" data-url="http://www.lennoo.com/2017/03/19/qgis_quickfind/">
       </div>
     
   </div>
@@ -441,7 +425,7 @@ PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在windows平台的安装和开发"><span class="nav-number">1.</span> <span class="nav-text">在windows平台的安装和开发</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
