@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Lennoo">
 <meta property="og:description" content="QGIS是开源的GIS软件，得益于它的插件体系，可以增加许多额外功能。最需要的查找表的某个字段，将在地图上进行定位，QGIS自身提供了属性表按表达式来查找定位，但这一方法过于繁琐。或者使用MMQGIS的Search功能，它提供选择表、字段、比较符和值的输入框，虽然通过快捷键绑定呼出对话框，但是在属性表和字段较多的时候仍显得复杂。
 通常我们经常查找的是某几个表的某几个字段，QuickFind插件通过">
-<meta property="og:updated_time" content="2017-03-19T06:23:10.680Z">
+<meta property="og:updated_time" content="2017-03-19T06:26:56.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QGIS的quickfind插件的模糊查找">
 <meta name="twitter:description" content="QGIS是开源的GIS软件，得益于它的插件体系，可以增加许多额外功能。最需要的查找表的某个字段，将在地图上进行定位，QGIS自身提供了属性表按表达式来查找定位，但这一方法过于繁琐。或者使用MMQGIS的Search功能，它提供选择表、字段、比较符和值的输入框，虽然通过快捷键绑定呼出对话框，但是在属性表和字段较多的时候仍显得复杂。
@@ -287,6 +287,7 @@
       
         <p>QGIS是开源的GIS软件，得益于它的插件体系，可以增加许多额外功能。最需要的查找表的某个字段，将在地图上进行定位，QGIS自身提供了属性表按表达式来查找定位，但这一方法过于繁琐。或者使用MMQGIS的Search功能，它提供选择表、字段、比较符和值的输入框，虽然通过快捷键绑定呼出对话框，但是在属性表和字段较多的时候仍显得复杂。</p>
 <p>通常我们经常查找的是某几个表的某几个字段，QuickFind插件通过预先的设置提供了一条简洁的对话框供输入。QuickFind底层是使用sqlite的FTS3全文索引功能，但在中文环境使用时会发现他只能匹配开头模式。如下两行，使用“浙江”关键字查找将只找到第2行，而第1行找不到。</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sample_col:</div><div class="line">中国浙江温州</div><div class="line">浙江温州</div></pre></td></tr></table></figure>
 <p>通过修改quickfind的源码，可以暂时进行解决。找到quickfind目录下的project_find.py文件，修改两行代码，将MATCH简单改为LIKE模式。这一修改会影响大数据量（估许要上万行记录）的查询速度，所以暂没有请求合并至源代码，但对于小数据量而言，平时会方便很多。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">186 </div><div class="line">to_find[i] = &apos;%s*&apos; % word</div><div class="line">--&gt;</div><div class="line">to_find[i] = &apos;%%%s%%&apos; % word #</div><div class="line"></div><div class="line">189</div><div class="line">sql = &quot;SELECT search_id,content,x,y,wkb_geom FROM quickfinder_data WHERE content MATCH ?&quot;</div><div class="line">--&gt;</div><div class="line">sql = &quot;SELECT search_id,content,x,y,wkb_geom FROM quickfinder_data WHERE content LIKE ?&quot;</div></pre></td></tr></table></figure>
