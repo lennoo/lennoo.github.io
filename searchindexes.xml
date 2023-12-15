@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Django调整</title><url>/posts/start_django/</url><categories/><tags/><content type="html"> Django == 1.10
+配置
+Tune your AUTH_PASSWORD_VALIDATORS setting by removing the django.contrib.auth.password_validation.CommonPasswordValidator out there.
+Password validation is a new feature introduced in Django 1.9.
+This password is too short. It must contain at least 8 characters. This password is entirely numeric.</content></entry><entry><title>Amazon EC2注册及应用</title><url>/posts/amazon_ec2_register_application/</url><categories/><tags/><content type="html"> Amazon EC2是Amazon云计算的一部分，相当于一台VPS，现提供有限额的一年的免费使用时间。注册Amazon EC2需要有Visa或Master的信用卡进行支付验证，会扣除一美元，然后再把这钱重新返还。（我出现2次扣款短信，实际登陆只发现可用信用额少，但没有出应付款帐单）。
+注册完Amazon EC2后，需要创建实例可部分参考 Amazon EC2 Ubuntu折腾笔记
+，有几点需要注意：一是区域测试过日本机房和新加坡机房，对我所处的位置来说，新加坡的ping时间在200ms水平，而日本在300ms水平，新加坡的更适合。二是登陆用的是密钥形式，如用putty需要格式转换，另不同的ami的登陆名不同，ubuntu官方的ami的id为099720109477，用户名为ubuntu，而不是Amazon实例的ec2-user。
+创建完EC2实例后，就是一般的虚拟主机使用方法，我现有两个用途：ssh转发和反向代理。ssh转发用的组合是 firefox+foxyproxy+putty ，其中putty在Tunnels页配置隧道，端口可随意，一般选7070，目标为Dynamic。在foxyproxy的代理配置页，需要Socks proxy?勾选上，我在这步开始没有注意，发现端口创建连接都失败，来回排查putty,foxyproxy，后来将装了autoproxy插件工作正常，才兜回来发现这步错误。配置完毕，就可自由地浏览网络了。
+反向代理用的是nginx，在ubuntu 10.04.2下的操作:
+安装nginx，$sudo aptitude install nginx 修改配置文件,$vim /etc/nginx/nginx.conf ，在http段落下添加 server { listen 80; server_name www.lengoo.com lengoo.com; location ／ { proxy_redirect off; proxy_pass http://len-home.appspot.com; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; } } 上面其中 len-home.appspot.com 为appengine的应用程序名，对于Amazon Linux AMI(应是CentOS)可参见使用免费的 amazon EC2做google app engine反向代理，但文中提到用转发到 http://ghs.google.com
+，我照其方法会跳转到错误的google首页。</content></entry><entry><title>简简单单用py2exe打包python脚本</title><url>/posts/pack_python_script_using_py2exe/</url><categories/><tags/><content type="html"><![CDATA[  py2exe是实用的python脚本工具，可以将python脚本程序转换为exe执行文件。这样你的python程序就可以没有安装python运行时环境的电脑里运行了。py2exe方便地提取出python运行时所需要的文件档案，你需要做的就是写一个两三行的安装脚本文件。
+py2exe可以从 http://sourceforge.net/projects/py2exe/下载，唯一需要注意的是下载与你python版本号对应的版本，简单的英文教程 http://www.py2exe.org/index.cgi/Tutorial非常容易入门。
+对早先写的一个代理验证脚本进行exe文件封装作为示例，这测试脚本名为HttpProxyTester.py。
+首先，最好测试运行一下待封装的脚本以确定没有问题，然后在HttpProxyTester.py脚本的同级目录新建一setup.py文件。
+# setup.py from distutils.core import setup import py2exe setup(console=[&#39;HttpProxyTester.py&#39;]) 上面的文件首先引入了distutils模块，这模块随python安装分发的，也就是说内置的。接着导入py3exe模块，它其实对distutils做了一些功能扩展。接下来的语句说明是控制台运行。对于windows的GUI模式运行，而不出控制台窗口，则需要setup(windows=[&lsquo;xxx&rsquo;])之类指令，这对于pyWidget程序将很有用。
+在完成安装脚本后，接下来就是在控制台下运行这脚本。
+&gt;python setup.py py2exe 这时会打印出许多log信息，并在同级目录下出现两个新的文件夹：build和dist。build文件夹下是py2exe生成的一些临时文件，dist就是需要分发的文件内容，可以这文件夹打包，然后在别的机子上运行了。
+总之，py2exe非常简单实用，三分钟就可以搞定。
+  ]]></content></entry><entry><title>Python类、模块、包</title><url>/posts/python_class_module_package/</url><categories/><tags/><content type="html"><![CDATA[  Python在处理功能复用和功能颗粒度划分时采用了类、模块、包的结构。这种处理跟C++中的类和名字空间类似，但更接近于Java所采用的概念。
+类类的概念在许多语言中出现，很容易理解。它将数据和操作进行封装，以便将来的复用。
+模块模块，在Python可理解为对应于一个文件。在创建了一个脚本文件后，定义了某些函数和变量。你在其他需要这些功能的文件中，导入这模块，就可重用这些函数和变量。一般用module_name.fun_name，和module_name.var_name进行使用。这样的语义用法使模块看起来很像类或者名字空间，可将module_name 理解为名字限定符。模块名就是文件名去掉.py后缀。下面演示了一个简单的例子：
+#moduel1.py def say(word): print word #caller.py import module1 print __name__ print module1.__name__ module1.say(&amp;#39;hello&amp;#39;) $ python caller.py __main__ module1 hello 例子中演示了从文件中调用模块的方法。这里还展示了一个有趣的模块属性__name__，它的值由Python解释器设定。如果脚本文件是作为主程序调用，其值就设为__main__，如果是作为模块被其他文件导入，它的值就是其文件名。这个属性非常有用，常可用来进行模块内置测试使用，你会经常在一些地方看到类似于下面的写法，这些语句只在作为主程序调用时才被执行。
+if __name__ == &amp;#39;__main__&amp;#39;: app = wxapp(0) app.MainLoop() 模块搜索路径上面的例子中，当module1被导入后，python解释器就在当前目录下寻找module1.py的文件，然后再从环境变量PYTHONPATH寻找，如果这环境变量没有设定，也不要紧，解释器还会在安装预先设定的的一些目录寻找。这就是在导入下面这些标准模块，一切美好事情能发生的原因。
+import os import sys import threading ... 这些搜索目录可在运行时动态改变，比如将module1.py不放在当前目录，而放在一个冷僻的角落里。这里你就需要通过某种途径，如sys.path，来告 …  ]]></content></entry><entry><title>wxPython和XRC文件实现i18n</title><url>/posts/wxpython_xrc_i18n/</url><categories/><tags/><content type="html"><![CDATA[  应用程序国际化，在开源世界里常以i18n被提及，i18n是Internationalization的简写，正好18个字母。在wxPython程序进行i18n，如果字符串是编码在源文件中时，完全可按照python程序的i18n的方法，即使用gexttext和locale模块。而wxPython程序在使用XRC文件做为界面资源时，则应使用wx.Locale模块，它封装了区域化相关的操作。i18n，或者国际化实际上涉及到语言习惯，数字格式等等类别的内容。这里只介绍语言多国化，将一个简单的英文程序转换为中文，涉及到源文件，可从这里下载。
+创建PO文件PO文件是Portable Object文件的简称，它包含需要翻译的字符串。我们需要从源文件进行提取。首先，对源文件test.py编辑，标识代码里需要翻译的字符串内容。我们使用_(&amp;ldquo;xx&amp;rdquo;)的方法，这种形式可能在许多开源源代码中见识过。
+#加载菜单栏 menubar = rc.LoadMenuBar(&amp;#39;IDR_MENU&amp;#39;) 这里的IDR_MENU是资源标识ID，不需要翻译，因此不做改变，而下面的代码：
+info.SetVersion(&amp;#39;1.0&amp;#39;) info.SetDescription(&amp;#39;XRC i18n Demo&amp;#39;) XRC i18n Demo是描述性的文本，需要进行翻译，将需要处理为
+info.SetVersion(&amp;#39;1.0&amp;#39;) info.SetDescription(_(&amp;#39;XRC i18n Demo&amp;#39;)) 接着需要生成.pot(Portable Object Template)，这是po的模板文件。在将来程序可能配置成其他语种，其他语言的po文件都从它而来。为了创建这文件，需要用到GNU gettext工具集中的xgettext。向xgettext传入些必要的信息，来创建.pot文件。
+&amp;gt;xgetttext --output=test.pot test.py 我们将wxPython界面以XRC文件保存了，那里同样有要翻译的字符串需要提取。用XRCed工具将XRC生成python代码，勾选上&amp;rsquo;Generate gettext strings&amp;rsquo;项即可。将源文件和XRC生成 …  ]]></content></entry><entry><title>Cygwin，以及远程登陆Linux桌面</title><url>/posts/cygwin_remote_connect_linux/</url><categories/><tags/><content type="html"> 安装Cygwin
+在cgywin官方主页下载安装文件setup.exe,这只是一个网络安装包，体积很小。cgywin包含了许多GNU下的应用程序，真正安装时会根据你选择的组件，会自动去网上下载安装的。在国内最好使用镜像服务，这样速度会提高很多，建议去http://www.cygwin.net.cn/ 或 http://www.cygwin.cn/
+下载上述的安装包，并在安装进行到Choose A Download Site这个步骤时，选择合理的镜像。由于中国南北网速的差异，上述两个地址都尝试一下，看看哪个对你而言速度更快一些。
+在进行到Select Packages这个步骤时，选择你需要包，建议如下：
+Shells -&amp;amp;gt; rxvt-unicode-x 强大的X终端，可用它替换windows下的cmd.exe Net-&amp;amp;gt; openssh ssh客户端，可作putty的替换 Net-&amp;amp;gt; inetutils 可选，包含一些基本的网络工具，如telnet，否则在cygwin下无法使用windows的telnet cygwin安装时会自动进行包关联，在安装rxvt时，已自动将X server安装上了。
+配置调整
+启动cygwin,实际上是运行cgywin.bat批处理，它又调用了cmd.exe。我们将安装的rxvt作为默认终端，需要修改cygwin.bat。下面是我机子上的配置修改，请对应修改相应的路径。
+@echo off d: chdir d:\Cygwin\bin rxvt -e bash --login -i 调整rxvt观感，需要修改你用户主目录下的.Xdefaults文件，此文件在你选择的安装目录下的home\usrname下，在我的机子上是D:\Cgywin\home\len。若不存在，可在此目录下新建一个，修改内容如下：
+Rxvt*background: black Rxvt*foreground: #E2E6C7 Rxvt*font: 9x16 Rxvt*boldFont: 9x16 Rxvt*scrollBar_right: True Rxvt*saveLines: 1024 Rxvt*geometry: 80x30 Rxvt*color0: black Rxvt*color1: red Rxvt*color2: green …</content></entry><entry><title>简单的QQ代理验证</title><url>/posts/simple_qq_proxy_test/</url><categories/><tags/><content type="html"><![CDATA[  QQ在许多公司内部被禁止使用,为了能使用QQ,稍微懂点儿计算机的人都知道用代理。QQ提供了socket和http代理这两种功能，socket代理功能强大，但一般公司对外允许连接的端口号比较有限，难以利用。大多数公司是允许连接外部的80端口的，这样使用QQ的http代理是可行的。但是找到能用的QQ代理有点儿麻烦，因此下面的Python代码提供了自动进行QQ代理验证的功能。
+import urllib2 import socket import re f = urllib2.urlopen(&#39;http://www.proxycn.com/html_proxy/http-1.html&#39;) content = f.read() f.close() ipPattern = re.compile(r&#39;(\d+\.\d+\.\d+\.\d+):80&#39;) ipList = ipPattern.findall(content) print ipList requestData = &#34;CONNECT http.tencent.com:443 HTTP/1.1\x0d\x0a&#34; requestData += &#34;Accept: */*\x0d\x0aContent-Type: text/html\x0d\x0a&#34; requestData += &#34;Proxy-Connection: Keep-Alive\x0d\x0a&#34; requestData += &#34;Content-length: 0\x0d\x0a\x0d\x0a&#34; for ip in ipList: s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) try: s.connect((ip,80)) s.send(requestData) data = s.recv(64) if data.find(&#34;200 Connection established&#34;)!= -1: print ip, &#39;good&#39; # A vailable proxy is found once, then exit the program s.close exit(0) else: print ip, &#39;bad&#39; except socket.error: print ip, &#39;dead&#39; finally: s.close 程序在找到一个可用的QQ代理后退出，用good标识。另两种代理服务器的状态是dead,说明本地无法连接到代理服务器，或是bad，能与代理服务器建立连接，但是代理不能与QQ服务器通讯。
+代码思路通过代理中国获取到80端口的代理服务器列表，使用了urllib2模块获取页面数据，然后正则表达式解析出80端口的IP地址存入list中。接下来的几行代码简单，但是很重要，使用较为底层的socket对象，构造合适的数据包通过代理，请求与QQ服务器连接，通过读取的返回数据包来验证连接是否能建立。
+这里主要涉及到了HTTP协议的CONNECT的概念，很多人可能认为http代理只是为web浏览提供服务，其实CONNECT方法允许允许用户建立TCP连接到任何端口，这意味着代理不仅可用于HTTP，还可用于FTP，QQ等其他协议。只是网上提供CONNECT方法的代理服务器比较少，我有时候扫了一大堆，也没有找到一个可用的代理。反过来说，有时候你找到的能浏览网页的http服务器，未必能用在QQ上，QQ需要的是能CONNECT的代理。网页浏览一般只使用HTTP协议的GET或POST方法，提供这两种方法的服务器就多了。
+了解了代码的原理，稍做改动，就可以用于其他类型的代理的验证了，需要的是一些基本网络知识和数据报的发送和接收。
+  ]]></content></entry><entry><title>好用的Subversion属性功能</title><url>/posts/useful_subversion_property/</url><categories/><tags/><content type="html"> Subversion的属性是非常好用的功能,它将一些工作自动化，实现为受版本控制的源文件添加元信息的作用。属性是外部不可见的，可以简单认为是附加上在文件上的信息，和文件大小之类的信息是一样的，只不过他是通过subversion来管理的。属性的名称和值可以是你希望的任何值，限制就是名称必须是可读的文本，并且最好的一点是这些属性也是版本化的，就像你的文本文件内容，你可以像提交文本修改一样修改、提交和恢复属性修改，当你更新时也会接收到别人的属性修改—你不必为适应属性改变你的工作流程。
+Subversion保留了一组名称以svn:开头的属性，来预定义一些有用的功能。比如你常会看到一些人的源代码底部有像下面之类标识的文字：
+$Id: main_window.py 68 2008-06-30 02:05:05Z Len $
+这就使用了Subversion 中的 svn:keywords的自动属性，它让将发生在源代码中的一些属性的变化自动地更新到源代码中。这行字的意思是表示，main_windows.py 这个源代码文件最后被用户 len 更新于 2008-6-30 02:05:05Z，修订版本号为 68。要实现这样的自动更新，你只要对需要这样属性的文件上使用下面这行指令。
+&amp;amp;gt; svn propset svn:keywords &amp;amp;#34;Id&amp;amp;#34; main_window.py 或者使用TortoiseSVN中的Properties的操作按钮，方便地增加新的属性。接着需要在源代码文件中需要 Subversion 进行自动更新的地方插入 $Id$ 这样的 Keyword，那么在你下次进行提交更新时，该$Id$ 就会被 Subversion 自动替换为$Id: main_window.py 68 2008-06-30 02:05:05Z Len $ 这样的格式。 Subversion 中可以使用的Keyword 包括下面这些：
+Id 上面介绍过的综合的格式 LastChangedDate 最后被修改的时间，缩写为 Date。 LastChangedBy 最后修改该源代码文件的用户名，缩写为 Author。 LastChangedRevision 最后修订的版本号，缩写为 Revision。 如果想每次向Subversion服务器提交文件修改时，都要设置文件的属性，则需要进 …</content></entry><entry><title>Boost.Program_options简述</title><url>/posts/boost_program_options/</url><categories/><tags/><content type="html"><![CDATA[  介绍命令行接口是普遍,基础的人机交互接口，从命令行提取程序的运行时选项的方法有很多。你可以自己编写相对应的完整的解析函数，或许你有丰富的C语言编程经验，熟知getopt()函数的用法，又或许使用Python的你已经在使用optparse库来简化这一工作。大家在平时不断地谈及到“不要重复造轮子”，那就需要掌握一些顺手的库，这里介绍一种C++方式来解析命令行选项的方法，就是使用Boost.Program_options库。
+program_options提供程序员一种方便的命令行和配置文件进行程序选项设置的方法。使用program_options库而不是你自己动手写相关的解析代码，因为它更简单，声明程序选项的语法简洁，并且库自身也非常小。将选项值转换为适合的类型值的工作也都能自动完成。库有着完备的错误检查机制，如果自己手写解析代码时，就可能会错过对一些出错情况的检查了。最后，选项值不仅能从命令行获取，也能从配置文件，甚至于环境变量中提取，而这些选择不会增加明显的工作量。
+示例说明以下面简单的hello程序进行说明，默认打印hello world,如果传入-p选项，就会打印出人的姓名，另外通过传入-h选项，可以打印出帮助选项。略微看一眼代码文件和相应的屏幕输入输出，然后我们再一起来看看这些是如何发生的。
+//hello.cpp #include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; #include &amp;lt;boost/program_options.hpp&amp;gt; using namespace std; int main(int argc, char* argv[]) { using namespace boost::program_options; //声明需要的选项 options_description desc(&amp;#34;Allowed options&amp;#34;); desc.add_options() (&amp;#34;help,h&amp;#34;, &amp;#34;produce help message&amp;#34;) (&amp;#34;person,p&amp;#34;, value&amp;lt;string&amp;gt;()-&amp;gt;default_value(&amp;#34;world&amp;#34;), &amp;#34;who&amp;#34;) ; …  ]]></content></entry><entry><title>Xmanager远程连接ubuntu</title><url>/posts/xmanage_remote_connect_ubuntu/</url><categories/><tags/><content type="html"><![CDATA[  涉及到软件：Xmanager 1.3.9 / Windows xp, ubuntu hardy
+在ubuntu机器上配置好gdm,修改/etc/gdm/gdm.conf-custom,对照添加如下内容： &rsquo;&rsquo;&rsquo; [security] DisallowTCP=false [xdmcp] Enable=true &rsquo;'' 性能调优。这步非常关键，不然使用Xmanager登陆速度非常慢，且会报错，主要原因是gnome使用Esound进行声音数据的传送，需要使用TCP 16001端口。所以我建设在ubuntu关掉混音选项。 系统-首选项-音效-音效,将“允许软件混音”不要勾选上， 系统-首选项-字体-字体渲染,选择&quot;单色&quot;,在“细节”的“字体渲染细节”中的平滑和微调选项，都选择&quot;无&quot;。 有用的参考：(http://www.netsarang.com/products/xmg_faq.html)
+  ]]></content></entry><entry><title>强大的网络传输工具cURL和libcurl</title><url>/posts/powerful_network_tool_curl_libcurl/</url><categories/><tags/><content type="html"> cURL是一个利用URL语法的文件传输工具,是基于libcurl的前端命令行工具。它支持很多协议：FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE 以及 LDAP。 它同样支持HTTPS认证，HTTP POST方法, HTTP PUT方法, FTP上传, kerberos认证, HTTP上传, 代理服务器, cookies, 用户名/密码认证, 下载文件断点续传, 上载文件断点续传, http代理服务器管道（ proxy tunneling）, 甚至它还支持IPv6, socks5代理服务器,通过http代理服务器上传文件到FTP服务器等等，功能十分强大。
+除了使用curl命令行直接进行相关的网络操作，你也可以自由地使用libcurl,它是用C语言编写的，可以绑定到众多的编程语言中，如C,C++,PHP,Python,Perl,Java等等。你可以很方便地利用libcurl，在程序中进行一些网络传输工作，来代替一些语言的内置，使你的知识可重用。在Unix工作环境下，你可以用curl代替wget和ftp等工具，并能将这种学习经验迁移到将来使用libcurl来完成一些自动化任务。
+curl是瑞典curl组织开发的，可以通过(
+http://curl.haxx.se/
+)来获取更详细的信息和下载文件。
+curl命令行工具使用
+curl太强大了，只能对其HTTP的部分作一简单的介绍，其他选项可以参见其附带的手册。它的后端库的使用也非常方便，主要也是在选项设置上，跟命令行基本无异。
+用法
+curl [选项] [URL...]
+URL 语法
+URL语法是跟协议相关的，具体细节可参见RFC 3986 可以指定多个URLs或者部分URL地址，通过花括号{}进行分割： http://site.{one,two,three}.com 或者用[]使用字母序： ftp://ftp.numericals.com/file[1-100].txt
+ftp://ftp.numericals.com/file[001-100].txt
+(有前导零) ftp://ftp.letters.com/file[a-z]].txt
+当前序列嵌套不被支持，但是还是可以使用下列的样式： …</content></entry><entry><title>可爱的Vim</title><url>/posts/cute_vim/</url><categories/><tags/><content type="html"> Vim是功能强大的文本编辑器,但是每个工具都有其针对的适用群体。如果你只是偶尔做些文本编辑工作的话，那灵活而又显得繁琐的设置，以及特别的操作方式可能不适合你。但是你是跟我一样，是个平平凡凡的程序员，每天要花费大量时间在写代码,把弄着各式各样的程序语言:C\C++,Python,Tcl,Html,Xml,&amp;amp;hellip;，那么你可能需要像Vim这样的工具，即使你要在它上面花费些时间去熟悉和适应它。
+先讲述一下，我跟Vim相处的过程，这是个从认识，到抛弃，到再认识，到再学习，到喜欢的过程。最早接触到Vim是在Solaris上，需要修改编辑一些配置文件，看着其他工程师们手指随意地在键盘上敲击，就完成内容的修改，根本没有动用到什么鼠标，那是好生羡慕。严格意义来说，那时候碰到还不是Vim，只是VI而已。在终端上工作，没有什么Notepad之类的程序，只好把指令抄在纸上，查查网上的资料，学会了h,j,k,l,w,q,e,这几个简单指类来进行简单的文本查看工作，仅此而己。后来在Windows上安装了VIM，但是挣腾了几下，没有适应过来，也就只好使用UltraEdit了。UltraEdit对一般的纯文本，按Windows习惯来说是蛮好使的。再后来，玩了会儿ruby，又装起了Vim，但是那时候的对Vim的使用也只是限于上面的简单的指令，再加上Vim的插件，来完成语法高亮，ruby中的MVC文件的方便跳转而已，还是没有习惯Vim，有时候还是不经意用UltraEdit来打开查看编辑文件。直到最近，需要编写Docbook，以及用Python，才真正花费了大量时间来学习使用Vim，才真正认识到到它的可爱。
+接着说说，我为什么使用Vim，觉得值得学习它，喜欢它的理由吧，纯粹以自己的观点来叙述。
+跨平台性，无论在Windows，Linux,Solaris,FreeBSD等等操作系统上，以及一些名都没有听过的系统上，你都可以找到它。这样就保证了你的学习投资的保值性，就拿UltraEdit做对比吧，即使你在UltraEdit上学会灵活运用许多功能，到了Linux上，你在这部分学习投资就没有价值了，你可能需要找其他称手的编辑器，然后再进行学习一些功能。特别在一些古老的大型机上的系统上，即使没有Vim，一般来说，还有Vi的，这样一般简单的操作命令还是可复用的。如果你确定你一直只呆在Windows上可忽略 …</content></entry><entry><title>Boost.Lambda是什么?</title><url>/posts/boost_lambda_brief/</url><categories/><tags/><content type="html"><![CDATA[  Boost.Lambda是什么?Boost Lambda库是C++模板库,以C++语言实现了lambda抽象.Lambda这个术语来自函数编程语言和lambda闭包理论,lambda抽象实际上定义了匿名函数.了解过C#新引入的匿数函数特性或Lisp编程的人，对这些概念理解会有很大帮助.Lambda库设计的主要动机是为STL算法提供灵活方便的定义匿名函数对象的机制.这个Lambda库究竟是有什么用呢?代码胜千言!看下面将STL容器中的元素打印到标准输出上的代码.
+for_each(a.begin(), a.end(), std::cout &amp;lt;&amp;lt; _1 &amp;lt;&amp;lt; &amp;#39; &amp;#39;); 表达式std::cout &amp;laquo; _1 &amp;laquo; &amp;rsquo; &amp;lsquo;定义了一元函数对象.变量_1是函数的形参,是实参的占位符.每次for_each的迭代中,函数带着实际的参数被调用,实际参数取代了占位符,然后函数体里的内容被执行.Lambda库的核心就是让你能像上面所展示的那样,在STL算法的调用点,定义小的匿名函数对象.
+Lambda库的安装Lambda库只由头文件组成,这就意味着你不需要进行任何编译,连接,生成二进制库的动作,只需要boost库头文件路径包含进你的工程中即可使用.
+与现代的C++语言一样,在使用时你需要声明用到的名字空间,把下列的代码包含在你的源文件头:
+using namespace boost::lambda; Boost Lambda库的动机在标准模板库STL成为标准C++的一部分后,典型的STL算法对容器中元素的操作大都是通过函数对象(function objects)完成的.这些函数作为实参传入STL算法.
+任何C++中以函数调用语法被调用的对象都是函数对象.STL对某些常见情况预置了些函数对象.比如:plus,less,not1下面就是标准plus模板的一种可能实现:
+template &amp;lt;class T&amp;gt; struct plus : public binary_function &amp;lt;T, T, T&amp;gt; { T operator()(const T&amp;amp; i, const T&amp;amp; j) const { return i + j; } }; 基 …  ]]></content></entry><entry><title>Say Hello to Glade</title><url>/posts/say_hello_to_glade/</url><categories/><tags/><content type="html"> Glade是针对GTK+工具箱与GNOME桌面开发环境的快速图形界面开发工具.用Glade设计的用户接口以XML的文件形式保存,然后根据需要由程序通过libglade库文件来动态加载.因为使用了libglade库,Glade XML文件能够被C,C++,Java,Perl,Python,C#等等语言所支持.针对其他未涉及的语言的支持也是方便的.
+在网上可以见到某些关于Glade的教程,大都是关于Linux平台和Glade 2的,因为原先Glade作为快速开发工具,集成代码生成功能,生成C文件.所以常常有初学者对网上某些教程所提及的&amp;amp;quot;generate&amp;amp;quot;(生成代码)功能表示迷惑,在新版本的Glade-3上找不到对应的功能.
+新版本的Glade-3是对原先Glade代码的完全重写.一个显著的变化就是去除了代码生成功能.这样做是有原因的,即然代码生成功能不被提倡使用,而是更鼓励使用libglade功能.但是如果你真需要代码生成功能的话,它还是可以做为插件来提供的.另一个显著的不同是glade-3设计用来最大化使用GObject的自省机制(GObject introspection),来使外部工具箱和部件的控制,信号和属性的集成更加容易.
+如果看过Say Hello to GTK+的话，可能感觉那样的窗体程序太简单了．那么现在让我们借助Glade弄点儿复杂一点儿的界面吧．首先来瞧瞧Glade长什么样,下图就是Glade在windows下的界面.左边的窗体的小部件选择器，相当于调色板．中间是主菜单，右边的是属性窗体．
+现在开始创建一个类似于文本编辑器的图形界面．按照上图标注的顺序，依次添加window部件，vertical box部件,menu bar部件,text view部件和Status部件.vertical box设置三行，它是用来进行界面布局，分割空间用，这是gtk+设计与传统的windows UI设计很不同的地方．后三个部件是放置vertical box中的，最后设计完成图形如下．保存取名为win.glade.如果你感兴趣的话，可以用文件编辑器打开这个文件看看，正如所说的那样，它是一个xml格式的文本文件．
+现在我们设置相关的头文件和库文件，编辑一个glade.c文件，添加进以下的代码，运行看看，会出现如上图的对话框．虽然这个对话框什么都不干，但 …</content></entry><entry><title>Say Hello to GTK+</title><url>/posts/say_hello_to_gtk+/</url><categories/><tags/><content type="html"><![CDATA[  Windows下的C++程序员在开发图形用户界面时,首先想到可能就是MFC了.对于GTK+这种GNU/Linux上出生出来的东西,就感到陌生了．GTK+是类似于MFC的图形界面库,跟MFC不同的是,它不是用C++,而是用C语言实现了面对对象的机制,但能与许多语言绑定,并具有跨平台的特性.比如与Python的结合,就产生PyGTK,&amp;ldquo;初识PyGTK&amp;quot;就介结了其在Windows平台的安装.
+在Windows开发GTK+的应用程序,首先需要其在Windows版本下的库文件,下载gladewin32项目中的gtk+-win32-devel安装包进行安装.我这里使用VS2005进行配置，因为相对于其他的环境，大家对于此IDE更为熟悉．接下来我将一步步介绍我在对GTK/Glande3说Hello时碰到的问题与解决方法．
+丑陋的Hello World任何像我一样急切的人，都希望用最少的代码，看一下GTK+的世界是怎么样的．新建一&amp;quot;Win32 项目&amp;rdquo;,然后向其添加gtk.c文件.
+/* file gtk.c */ #include &amp;lt; gtk / gtk.h &amp;gt; int main( int argc, char * argv[]) { GtkWidget * window; gtk_init ( &amp;amp; argc, &amp;amp; argv); window = gtk_window_new (GTK_WINDOW_TOPLEVEL); gtk_window_set_title (GTK_WINDOW (window), &amp;#34; Hello World &amp;#34; ); gtk_widget_show (window); gtk_main(); return 0 ; } 现在麻烦的事情到了,设置相关的头文件和库文件.设置头文件,右键点击项目名,然后选择属性.然后在&amp;quot;常规&amp;quot;-&amp;ldquo;附加包含目录&amp;quot;中设置你安装gtk+-win32-devel时对应的头文件目录.然后再设置库文件,需要gtk-win32-2.0.lib,glib-2.0.lib,gobject-2.0.lib.
+设置完好后,你就可以编译运行了,一个什么都不干的丑陋的windows窗体出现你面前了.若编译不通过,缺少某些头 …  ]]></content></entry><entry><title>小Q和小A的故事之EFS加密</title><url>/posts/efs_faq_story/</url><categories/><tags/><content type="html"> 自从去年底娱乐圈曝出了&amp;amp;quot;艳照门&amp;amp;quot;事件后, 小Q就开始注意自己的私密文件了,在网上google加密软件,想把那些珍藏的AV小电影和情感小日记加密起来,防止一个不小心被人公布.网上的私人出品的小加密软件不敢用,怕被别人留了后门,至于安全性也没有保证.后在网上经高手指点,使用WinRAR软件的加密功能,把一个个文件压缩成包,并设置了密码.这东西倒是简单,但是小Q常常需要回顾一下这些小电影,以解单身之苦,偶尔又写下日记.这样一来,常常就需要输入密码,解压,解渴,压缩,麻烦又耗时，且WinRAR密码又不能太简单，不然有被暴力破解的可能．
+小Q又在忙活了，凑巧被密友小A看到，将情况如实向小A说了．小A是个计算机迷，知道小Q需求后，立即问到：你怎么不用Windows自带的EFS加密呀?
+小Q:什么是EFS加密呀?
+小A:EFS阿，就是Encryption File System,反正跟你说英语也不清楚，就是加密文件系统，是Windows 2000开始所特有的一个实用功能，对于NTFS卷上的文件和数据，都可以直接被操作系统加密保存．EFS加密是基于公钥策略的,安全的很.
+小A就是这样喜欢卖弄一下英语和专业词汇,这样才显得水平高.
+小Q:那你说的公钥策略是什么呀?
+小A:公钥要这可要从加密领域说起.就拿你用WinRAR加密文件来说吧,WinRAR是使用DES对称加密算法,也就是加解密都是用同一个密码.还再教你个新词,搞计算机的人,密码不叫密码,要说成密钥,相当于开锁的钥匙,这样才显得X.而公钥策略呢,加解密不是用同一密码,一般加密的叫公钥,解密的叫私钥.
+小Q:阿,弄得这么麻烦呀,那我给文件加个密后,输入密码后,怎么知道私钥是什么呀?
+小A:这个EFS加密呀,不用你输入密码.它在加密时,会自动为你生成公钥和私钥,公钥和私钥的长度很长.打个比方,如果你平时用到密码很长很复杂,你会怎么办呢?是不是把密码抄在本子什么的,然后用到的时候拿出来看呀.这公钥和密钥的信息就跟所谓的证书绑定在一起了,也就相当于小本子.
+小Q:阿,私钥自动生成放在电脑里,那不是相当于还是没有加过密,不安全呀?
+小A:私钥是放在你的硬盘上,但是windows用你的帐户信息为依据又加了层密．如果你能用你的用户帐号登陆系统，也就完成了验证工作．如果你用另外个帐号登陆的话，那些EFS加密过的文件，就无权获 …</content></entry><entry><title>初识PyGTK</title><url>/posts/hello_pygtk/</url><categories/><tags/><content type="html"><![CDATA[  PyGTK让你用Python轻松创建具有图形用户界面的程序.底层的GTK+提供了各式的可视元素和功能,如果需要,你能开发在GNOME桌面系统运行的功能完整的软件.
+PyGTK真正具有跨平台性,它能不加修改地,稳定运行各种操作系统之上,如Linux,Windows,MacOS等.除了简单易用和快速的原型开发能力外,PyGTK还有一流的处理本地化语言的独特功能.
+PyGTK是自由软件,所以你能几乎没有任何限制的使用，修改，分发，研究它，它是基于LGPL协议发布的．
+如果你对上面提到的GTK+,也不了解的话，那允许再对它也进行一番介绍．GTK+，用C语言开发的，具有跨平台的GUI库，它是GNOME桌面系统(如果你在用Linux，一定不陌生)和GIMP图象编辑器的开发工具箱．它是世界上许多程序员的选择，对他们来说，国际化的支持是必要的，而且性能也总是他们考虑的因素．与GTK同一领域的还有Qt库，它是由商业公司开发的C++图形库，虽然它也有免费的．
+在windows平台的安装和开发安装PyGTK只需执行下列步骤：
+安装Python2.4或以上的windows版本www.python.org从GTK+/Glade的windows版本的GTK+ 2.10开发运行时环境gladewin32.sourceforge.net从PyGTK网站下载安装PyCairo,PyGobject和PyGTK安装包，注意这些需全部安装才能使PyGTK工作[pygtk.org] 或许你对这些步骤还感到麻烦，或者对Python不熟悉的话，那也没有关系，直接下载一键安装包all-in-one installer,为你配置好全部运行时环境．
+看看开发环境是否配置正确，将下列代码作为Python脚本或者在Python交互控制台下输入．如果正确的话，应该有一个标题为 &ldquo;Hello World&rdquo; 的windows的空窗口呈现在你面前．
+如果不能运行的话，有可能会出现一个不能成功加载dll的错误提示，这是因为缺少iconv.dll．这时需要只需从网上下载过来，拷贝至windows/system32目录下即可了.
+import gtk window = gtk.Window() window.set_title(&#34;Hello World&#34;) window.show_all() gtk.main()   ]]></content></entry><entry><title>PC-Lint简介</title><url>/posts/pc_lint/</url><categories/><tags/><content type="html"><![CDATA[  PC-lint for C/C++是由Gimpel软件公司于1985年开发的代码静态分析工具,它能有效地发现程序语法错误、潜在的错误隐患、不合理的编程习惯等。
+FlexeLint for C/C++是在PC_lint在windows平台获得成功后，同样由Gimpel公司开发的，以源代码形式发布的，在Unix/Linux平台上的静态代码分析工具。
+本文主要介绍PC-lint的安装与配置，因此是在windows平台上进行讨论。
+PC-lint支持几乎所有流行的编译器和IDE环境，可能因为其发展历史和面对专业程序员群体的原因，它是以命令行加配置文件的形式进行使用，所以其使用习惯跟现在常见的windows软件不同。
+现以PC-lint与VS2005进行集成来说明：
+将PC-lint释放到某一目录下,如: D:\Program Files\pclint .将新建一std.lnt文件在主目录中，并将添加上以下的内容
+au-sm.lnt co-msc80.lnt lib-mfc.lnt lib-stl.lnt lib-w32.lnt lib-wnt.lnt lib-atl.lnt options.lnt -si4 -sp4 -i &#34;C:\Program Files\Microsoft Visual Studio 8\VC\include&#34; -i &#34;C:\Program Files\Microsoft Visual Studio 8\VC\atlmfc\include&#34; -i &#34;C:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include&#34; -i &#34;C:\Program Files\Microsoft Visual Studio 8\SDK\v2.0\include&#34; 注意：-i后面为相应的vc头文件目录路径,而一系列xxx.lnt是语法配置规则，决定了按什么规则进行检查，以后可以根据需要进行增减. 写在配置文件中相应的的xxx.lnt从lnt子目录中，拷贝到主目录中．（这一步很重要) 在vs2005中的工具-&gt;外部工具中，点击＂添加&quot;,新建一个外部工具.标题可以任意，可取(pc_lint)；命令为：D:\Program Files\pclint\LINT-NT.EXE；参数为:-i&quot;D:\Program Files\pclint&quot; std.lnt &quot;$(ItemFileName)$(ItemExt)&quot; ;初始目录为：$(ItemDir)，并将下面的＂使用输出窗口＂勾选上. 接下来，就可以写一段程序，在工具菜单中选择pc_lint 来进行检查了．如果你编写的程序有不符合定义的规范，则会在输出窗口中出现相关的信息.
+  ]]></content></entry><entry><title>Archive</title><url>/archives/</url><categories/><tags/><content type="html"></content></entry></search>
